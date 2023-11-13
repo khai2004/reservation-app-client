@@ -1,0 +1,49 @@
+.list-container {
+  flex: 70%;
+  position: relative;
+
+  .result {
+    margin-bottom: 10px;
+  }
+  .choose {
+    display: flex;
+    gap: 10px;
+    padding: 10px 10px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    width: fit-content;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(235, 234, 234);
+    }
+  }
+  .sort-list {
+    position: absolute;
+    background-color: white;
+    top: 100px;
+    left: 0px;
+    border-radius: 10px;
+    z-index: 5px;
+    box-shadow: 0 0 10px 2px rgb(235, 234, 234);
+    overflow: hidden;
+    cursor: pointer;
+
+    .slist {
+      display: flex;
+      flex-direction: column;
+      .item {
+        border-radius: inherit;
+        padding: 10px;
+
+        &:hover {
+          background-color: rgb(235, 234, 234);
+        }
+      }
+    }
+  }
+  .list {
+    margin-top: 20px;
+  }
+}

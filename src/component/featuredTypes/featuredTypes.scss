@@ -1,0 +1,30 @@
+.typeBox {
+  display: flex;
+  justify-content: center;
+  .type {
+    width: 100%;
+    width: 1024px;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+
+    .element {
+      width: 20%;
+      height: 100%;
+      object-fit: contain;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 5px 0 10px 5px rgb(245, 245, 245);
+        z-index: 2px;
+      }
+      cursor: pointer;
+      &:hover {
+        scale: 1.01;
+      }
+    }
+  }
+}

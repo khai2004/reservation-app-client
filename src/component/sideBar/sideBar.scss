@@ -1,0 +1,40 @@
+.sidebar-box {
+  flex: 30%;
+  border: 1px solid rgb(234, 217, 217);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  h3 {
+    padding: 15px;
+  }
+  .sidebar-element {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-top: 1px solid rgb(234, 217, 217);
+    gap: 15px;
+
+    .checkbox {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+      .checkbox-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .check {
+          display: flex;
+          gap: 5px;
+          align-items: center;
+          input {
+            height: 20px;
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+}

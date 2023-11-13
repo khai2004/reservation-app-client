@@ -1,0 +1,383 @@
+.single-hotel {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  .single-box {
+    margin-top: 50px;
+    width: 100%;
+    width: 1024px;
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .left-title {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .location {
+          display: flex;
+          gap: 10px;
+          font-size: 14px;
+          font-weight: 600;
+          color: rgb(59, 81, 25);
+        }
+      }
+      .right-title {
+        padding: 10px 10px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+        background-color: rgb(22, 22, 169);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: rgb(87, 87, 247);
+        }
+      }
+    }
+    .galery {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      height: 40vh;
+      object-fit: cover;
+      overflow: hidden;
+
+      .galery1 {
+        width: 33%;
+        height: 100%;
+        cursor: pointer;
+        &:hover {
+          scale: 1.03;
+          transition: 0.3s;
+        }
+      }
+
+      .galery2 {
+        width: 33%;
+        cursor: pointer;
+        height: 100%;
+        &:hover {
+          scale: 1.03;
+          transition: 0.3s;
+        }
+      }
+      .galery3 {
+        width: 33%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow: hidden;
+        .image_3 {
+          width: 100%;
+          height: 50%;
+          cursor: pointer;
+          object-fit: cover;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+          &:hover {
+            scale: 1.03;
+            transition: 0.3s;
+          }
+        }
+        .image_4 {
+          object-fit: contain;
+          cursor: pointer;
+          height: 50%;
+          width: 100%;
+          &:hover {
+            scale: 1.03;
+            transition: 0.3s;
+          }
+          .backgroud-image {
+            p {
+              font-size: 22px;
+              font-weight: 700;
+              color: rgb(45, 44, 44);
+              text-shadow: '2px 2px 4px rgba(0, 0, 0, 0.5';
+            }
+          }
+        }
+      }
+    }
+    .galery-full {
+      position: fixed;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      width: 100vw;
+      background-color: rgba(237, 237, 237, 0.8);
+      .turn-off {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        font-size: 40px;
+        font-weight: 700;
+        padding: 5px 20px;
+        border: 1 solid grey;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .galery-content {
+        height: 90%;
+        width: 70%;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        align-items: center;
+        border-radius: 10px;
+
+        .button {
+          font-size: 40px;
+          padding: 5px 20px;
+          border: none;
+          background-color: rgb(225, 225, 225);
+          border-radius: 50%;
+          cursor: pointer;
+          &:hover {
+            color: rgb(57, 57, 255);
+          }
+        }
+
+        .image-box {
+          width: 95%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          overflow: hidden;
+          align-items: center;
+
+          .single-image {
+            height: 70%;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+              height: 90%;
+              width: 90%;
+              transition: 1s;
+            }
+          }
+          .text-slide {
+            height: 5%;
+            font-weight: 700;
+          }
+
+          .slide-box {
+            height: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            .slide {
+              height: 80%;
+              display: flex;
+              gap: 10px;
+              transition: 0.5s;
+
+              .image {
+                height: 100%;
+                width: 140px;
+                opacity: 0.6;
+                border-radius: 5px;
+              }
+              .active {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .desc {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin: 20px auto;
+      .left-desc {
+        width: 75%;
+      }
+      .right-desc {
+        width: 25%;
+        background-color: rgb(207, 243, 246);
+        display: flex;
+        justify-content: center;
+        border-radius: 10px;
+        .reserve {
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          p {
+            font-size: 12px;
+            display: flex;
+            gap: 5px;
+          }
+          .button {
+            padding: 7px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(32, 32, 255);
+            margin-top: 10px;
+          }
+          .favorate {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 5px;
+            border: 1px solid gray;
+            margin-top: 10px;
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+    .reserve {
+    }
+    .room-reserve {
+      position: fixed;
+      background-color: rgba(115, 115, 115, 0.6);
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .room-reserve-box {
+        background-color: white;
+        width: 20%;
+        height: 70%;
+        border-radius: 10px;
+        box-shadow: 0 0 15px 10px rgb(131, 130, 130);
+        position: relative;
+        padding: 30px;
+        .date-pick {
+          background-color: rgb(9, 9, 255);
+          font-weight: 500;
+          color: white;
+          border-radius: 5px;
+          cursor: pointer;
+          &:hover {
+            background-color: rgb(74, 74, 255);
+          }
+        }
+        .room-date {
+          position: absolute;
+          top: 0;
+          right: -100%;
+        }
+        .turn-off {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: flex-end;
+
+          p {
+            border-radius: 2px;
+            box-shadow: 0 0 5px 1px gainsboro;
+            font-size: 18px;
+            font-weight: 700;
+            width: 25px;
+            display: flex;
+            justify-content: center;
+            background-color: red;
+            cursor: pointer;
+            transition: 0.2s;
+            &:hover {
+              background-color: rgb(122, 139, 255);
+            }
+          }
+        }
+        h3 {
+          margin-bottom: 10px;
+        }
+
+        .header-reserve {
+          margin-top: 15px;
+          .note {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            .available-room {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .note-box {
+                width: 20px;
+                height: 20px;
+                color: blue;
+              }
+              .note-box-uncheck {
+                width: 18px;
+                height: 18px;
+                border: 1px solid black;
+              }
+            }
+          }
+        }
+        p {
+          margin-bottom: 5px;
+        }
+        .body-reserve {
+          box-shadow: 0 0 10px 1px rgb(238, 237, 237);
+          margin-top: 20px;
+          display: flex;
+          height: 60%;
+          overflow: scroll;
+          border: 1px solid gray;
+          border-radius: 20px;
+          padding-top: 20px;
+
+          .choose-room {
+            display: flex;
+            flex-wrap: wrap;
+
+            .check-room {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 5px;
+              margin-left: 25px;
+              input {
+                width: 30px;
+                height: 30px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

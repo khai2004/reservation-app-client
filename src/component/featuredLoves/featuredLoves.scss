@@ -1,0 +1,82 @@
+.homeBox {
+  display: flex;
+  justify-content: space-between;
+
+  .home-guest {
+    width: 100%;
+    width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    .card {
+      height: 350px;
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 10px 5px rgb(245, 241, 241);
+      border-radius: 10px;
+      gap: 5px;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover {
+        scale: 1.02;
+        overflow: hidden;
+      }
+
+      .image-guest {
+        border-top-right-radius: inherit;
+        border-top-left-radius: inherit;
+        width: 100%;
+        height: 60%;
+        overflow: hidden;
+        object-fit: cover;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .detail {
+        height: 40%;
+
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .desc {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          p {
+            font-size: 14px;
+          }
+
+          .review {
+            display: flex;
+            gap: 10px;
+            font-size: 12px;
+            .poitn {
+              padding: 2px;
+              color: white;
+              font-weight: bold;
+              border-radius: 25%;
+              background-color: rgb(41, 41, 122);
+            }
+            p {
+              font-size: 12px;
+            }
+          }
+        }
+        .price {
+          font-size: 16px;
+          display: flex;
+          justify-content: space-between;
+          span {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}
