@@ -4,6 +4,7 @@ import './hotelForm.scss';
 import { useCreateHotelMutation } from '../../../slices/hotelsApiSlice';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import SubmitButton from '../../../component/submitButton/SubmitButton';
 
 const HotelForm = () => {
   const [files, setFiles] = useState([]);
@@ -83,14 +84,10 @@ const HotelForm = () => {
     try {
       const upload = await handleUpload();
       data = { ...data, photo: upload };
-      console.log(upload);
-      console.log(data);
-      const res = await createHotel(data);
-      console.log(res);
-      // navigate('/admin/managehotel');
+      const res = await createHotel(data).unwrap();
       toast.success('Create success!🎉');
     } catch (error) {
-      toast.error(error?.data?.message || error.error);
+      toast.error(error?.data?.message || 'Something went wrong. Try again!');
     }
   };
 
@@ -109,7 +106,7 @@ const HotelForm = () => {
 
       <div className='hotel-form__row'>
         <label className='hotel-form__label'>Description:</label>
-        <input
+        <textarea
           className='hotel-form__input'
           type='text'
           name='desc'
@@ -227,20 +224,7 @@ const HotelForm = () => {
         />
       </div>
 
-      <div className='hotel-form__row'>
-        <label className='hotel-form__label'>Rooms:</label>
-        <input
-          className='hotel-form__input'
-          type='text'
-          name='rooms'
-          value={formData.rooms}
-          onChange={handleChange}
-        />
-      </div>
-
-      <button className='hotel-form__submit-btn' type='submit'>
-        Submit
-      </button>
+      <SubmitButton text='Create hotel' />
     </form>
   );
 };

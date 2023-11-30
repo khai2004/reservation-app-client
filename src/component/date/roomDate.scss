@@ -1,0 +1,24 @@
+.room-date-bar {
+  width: 100%;
+
+  .date {
+    cursor: pointer;
+    display: flex;
+    padding: 1rem;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+
+    .setDate {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+  }
+  .calendar {
+    position: absolute;
+    margin-top: 2rem;
+    z-index: 9000;
+    box-shadow: 0.5rem 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);
+  }
+}

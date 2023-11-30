@@ -4,6 +4,7 @@ import './createRoom.scss';
 import { useParams } from 'react-router-dom';
 import { useCreateRoomsMutation } from '../../../slices/roomApiSlice';
 import { toast } from 'react-toastify';
+import SubmitButton from '../../../component/submitButton/SubmitButton';
 
 const CreateRoom = () => {
   const [rooms, setRooms] = useState({});
@@ -40,7 +41,7 @@ const CreateRoom = () => {
     e.preventDefault();
     const data = { hotelid: id, formData: formData };
     try {
-      const res = await createRoom(data);
+      const res = await createRoom(data).unwrap();
       console.log(res);
       toast.success('Create room success!🎉');
     } catch (error) {
@@ -51,54 +52,58 @@ const CreateRoom = () => {
 
   return (
     <form className='room-form' onSubmit={handleSubmit}>
-      <label htmlFor='title'>Title:</label>
-      <input
-        type='text'
-        id='title'
-        name='title'
-        value={formData.title}
-        onChange={handleChange}
-        required
-      />
-
-      <label htmlFor='price'>Price:</label>
-      <input
-        type='number'
-        id='price'
-        name='price'
-        value={formData.price}
-        onChange={handleChange}
-        required
-      />
-
-      <label htmlFor='maxPeople'>Max People:</label>
-      <input
-        type='number'
-        id='maxPeople'
-        name='maxPeople'
-        value={formData.maxPeople}
-        onChange={handleChange}
-        required
-      />
-
-      <label htmlFor='desc'>Description:</label>
-      <textarea
-        id='desc'
-        name='desc'
-        value={formData.desc}
-        onChange={handleChange}
-        required
-      ></textarea>
-
-      <div className='room-numbers'>
-        <label>Rooms</label>
+      <div className='room-form__row'>
+        <label htmlFor='title'>Title:</label>
+        <input
+          type='text'
+          id='title'
+          name='title'
+          value={formData.title}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className='room-form__row'>
+        <label htmlFor='price'>Price:</label>
+        <input
+          type='number'
+          id='price'
+          name='price'
+          value={formData.price}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className='room-form__row'>
+        <label htmlFor='maxPeople'>Max People:</label>
+        <input
+          type='number'
+          id='maxPeople'
+          name='maxPeople'
+          value={formData.maxPeople}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className='room-form__row'>
+        <label htmlFor='desc'>Description:</label>
         <textarea
+          id='desc'
+          name='desc'
+          value={formData.desc}
+          onChange={handleChange}
+          required
+        ></textarea>
+      </div>
+      <div className='room-form__row'>
+        <label>Rooms</label>
+        <input
           onChange={(e) => handleRoomsChange(e)}
-          placeholder='give comma between room numbers.'
+          placeholder='Give comma between room numbers.'
         />
       </div>
 
-      <button type='submit'>Submit</button>
+      <SubmitButton text='Create room' />
     </form>
   );
 };

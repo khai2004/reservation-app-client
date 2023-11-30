@@ -1,43 +1,33 @@
-import React, { useEffect, useState } from 'react';
 import './sideBar.scss';
-import { useLocation, useNavigate } from 'react-router-dom';
-import {
-  useGetRatingHotelQuery,
-  useGetTypeHotelQuery,
-} from '../../slices/hotelsApiSlice';
-const SideBar = ({ filter }) => {
-  const [selectedRating, setSelectedRating] = useState('');
-
-  const [selectedType, setSelectedType] = useState('');
-
-  const navigate = useNavigate();
-
-  const { data: ratings, isLoading, error, refetch } = useGetRatingHotelQuery();
-
-  const {
-    data: type,
-    isLoading: typeLoading,
-    error: typeError,
-  } = useGetTypeHotelQuery();
+import { useLocation, useSearchParams } from 'react-router-dom';
+import { useGetRatingHotelQuery } from '../../slices/hotelsApiSlice';
+const SideBar = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleCheckboxChange = (rating) => {
-    selectedRating === rating
-      ? setSelectedRating('')
-      : setSelectedRating(rating);
+    Number(searchParams.get('rating')) === rating
+      ? searchParams.set('rating', '')
+      : searchParams.set('rating', rating);
+    setSearchParams(searchParams);
   };
   const handleTypeCheckboxChange = (type) => {
-    selectedType === type ? setSelectedType('') : setSelectedType(type);
+    searchParams.get('type') === type
+      ? searchParams.set('type', '')
+      : searchParams.set('type', type);
+    setSearchParams(searchParams);
   };
   const location = useLocation();
-
   const urlSearchParams = new URLSearchParams(location.search);
   const city = urlSearchParams.get('city') || '';
 
-  useEffect(() => {
-    navigate(
-      `/hotels?city=${city}&rating=${selectedRating}&type=${selectedType}`
-    );
-  }, [navigate, selectedRating, selectedType, city]);
+  const {
+    data: ratings,
+    isLoading,
+    error,
+    refetch,
+  } = useGetRatingHotelQuery(city);
+
+  const type = Object.keys(ratings?.typeNumber || {});
 
   return (
     <div className='sidebar-box'>
@@ -58,37 +48,35 @@ const SideBar = ({ filter }) => {
                 <div className='check'>
                   <input
                     type='checkbox'
-                    checked={index + 1 === selectedRating}
+                    checked={index + 1 === Number(searchParams.get('rating'))}
                     onChange={() => handleCheckboxChange(index + 1)}
                   />
                   <span>{index + 1} star</span>
                 </div>
-                <p>{ratings[index]}</p>
+                <p>{Object.values(ratings?.ratingNumber || {})[index]}</p>
               </div>
             ))}
           </div>
         )}
       </div>
 
-      {typeLoading ? (
+      {false ? (
         'Loading'
       ) : (
         <div className='sidebar-element'>
           <h4> Property Type </h4>
           <div className='checkbox'>
-            {type.map((type) => (
-              <div className='checkbox-item' key={type._id}>
+            {type?.map((type, index) => (
+              <div className='checkbox-item' key={index}>
                 <div className='check'>
                   <input
                     type='checkbox'
-                    checked={type._id === selectedType}
-                    onChange={() => handleTypeCheckboxChange(type._id)}
+                    checked={type === searchParams.get('type')}
+                    onChange={() => handleTypeCheckboxChange(type)}
                   />
-                  <span>
-                    {type._id.charAt(0).toUpperCase() + type._id.slice(1)}
-                  </span>
+                  <span>{type.charAt(0).toUpperCase() + type.slice(1)}</span>
                 </div>
-                <p>{type.count}</p>
+                <p>{Object.values(ratings?.typeNumber || {})[index]}</p>
               </div>
             ))}
           </div>

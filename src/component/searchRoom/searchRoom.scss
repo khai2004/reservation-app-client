@@ -1,0 +1,42 @@
+.search-room-box {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.2rem;
+  height: 4rem;
+  width: 100%;
+  background-color: #ffb700;
+  border-radius: 0.5rem;
+  .room-date-box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: inherit;
+  }
+  .people-search-box {
+    width: 35%;
+    height: 100%;
+    background-color: white;
+    border-radius: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .search-bar {
+    width: 15%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: rgb(0, 174, 255);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(76, 76, 253);
+    }
+  }
+}

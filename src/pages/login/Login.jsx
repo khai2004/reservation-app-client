@@ -17,12 +17,13 @@ const LoginForm = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await loginApi(login);
+      const res = await loginApi(login).unwrap();
+      console.log(res);
       dispatch(setCredential(res));
       navigate('/');
       toast.success('Login successful');
     } catch (error) {
-      toast.error(error?.error?.data.message);
+      toast.error(error?.data?.message || 'Something went wrong. Try again!');
     }
   };
   return (

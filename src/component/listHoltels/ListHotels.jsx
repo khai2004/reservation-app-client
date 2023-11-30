@@ -7,11 +7,31 @@ import {
   faSort,
 } from '@fortawesome/free-solid-svg-icons';
 import SingleHotel from '../singelHotel/SingleHotel';
-import { useLocation, useParams } from 'react-router-dom';
+import Paganation from '../paganation/Paganation';
+import { useSearchParams } from 'react-router-dom';
 import { useGetHotelsQuery } from '../../slices/hotelsApiSlice';
-const ListHotels = ({ setPrice, data, isLoading }) => {
+const ListHotels = () => {
   const [option, setOption] = useState(false);
   const [optionChoice, setOptionChoice] = useState('Our top picks');
+
+  const [price, setPrice] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const type = searchParams.get('type') || '';
+  const rating = searchParams.get('rating') || '';
+  const city = searchParams.get('city') || '';
+  const page = searchParams.get('page') || '';
+  const pageSize = searchParams.get('pageSize') || '';
+
+  const filter = {
+    type,
+    rating,
+    city,
+    price,
+    page,
+    pageSize,
+  };
+  const { data, isLoading, error } = useGetHotelsQuery(filter);
   const handlePrice = (price, optionChoice) => {
     setPrice(price);
     setOptionChoice(optionChoice);
@@ -25,11 +45,21 @@ const ListHotels = ({ setPrice, data, isLoading }) => {
       ) : (
         <>
           {data?.hotels.length === 0 ? (
-            <div className='list-container'>Đéo có dữ liệu</div>
+            <div className='list-container'>
+              <h2 className='result'>
+                <span>
+                  {city ? `${city}:` : ''} {data?.hotels.length}{' '}
+                </span>
+                properties found
+              </h2>
+            </div>
           ) : (
             <div className='list-container'>
               <h2 className='result'>
-                <span>Da nang: 1457</span>properties found
+                <span>
+                  {city ? `${city}:` : ''} {data?.hotels.length}{' '}
+                </span>
+                properties found
               </h2>
               <div
                 className='choose'
@@ -79,6 +109,7 @@ const ListHotels = ({ setPrice, data, isLoading }) => {
                 {data?.hotels?.map((hotel) => (
                   <SingleHotel hotel={hotel} key={hotel._id} />
                 ))}
+                <Paganation count={data.count} />
               </div>
             </div>
           )}{' '}

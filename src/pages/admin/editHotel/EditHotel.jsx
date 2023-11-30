@@ -117,33 +117,31 @@ const EditHotel = () => {
   };
 
   return (
-    <form className='hotel-form' onSubmit={submitHandler}>
-      <div className='hotel-form__row'>
-        <label className='hotel-form__label'>Title:</label>
+    <form className='hotel-form-edit' onSubmit={submitHandler}>
+      <div className='hotel-form-edit__row-edit'>
+        <label className='hotel-form-edit__label-edit'>Title:</label>
         <input
-          className='hotel-form__input'
+          className='hotel-form-edit__input-edit'
           type='text'
           name='title'
           value={formData.title}
           onChange={handleChange}
         />
       </div>
-
-      <div className='hotel-form__row'>
-        <label className='hotel-form__label'>Description:</label>
-        <input
-          className='hotel-form__input'
+      <div className='hotel-form-edit__row-edit'>
+        <label className='hotel-form-edit__label-edit'>Description:</label>
+        <textarea
+          className='hotel-form-edit__input-edit1'
           type='text'
           name='desc'
           value={formData.desc}
           onChange={handleChange}
         />
       </div>
-
-      <div className='hotel-form__row'>
-        <label className='hotel-form__label'>Type:</label>
+      <div className='hotel-form-edit__row-edit'>
+        <label className='hotel-form-edit__label-edit'>Type:</label>
         <select
-          className='hotel-form__select'
+          className='hotel-form-edit__select-edit-edit'
           name='type'
           value={formData.type}
           onChange={handleChange}
@@ -155,42 +153,39 @@ const EditHotel = () => {
           <option value='cabins'>Cabins</option>
         </select>
       </div>
-
-      <div className='hotel-form__row'>
-        <label className='hotel-form__label'>Country:</label>
-        <input
-          className='hotel-form__input'
-          type='text'
+      <div className='hotel-form-edit__row-edit'>
+        <label className='hotel-form-edit__label-edit'>Country:</label>
+        <select
+          className='hotel-form-edit__select-edit-edit'
           name='country'
           value={formData.country}
           onChange={handleChange}
-        />
+        >
+          <option value='hotel'>Viet Nam</option>
+        </select>
       </div>
-
-      <div className='hotel-form__row'>
-        <label className='hotel-form__label'>City:</label>
+      <div className='hotel-form-edit__row-edit'>
+        <label className='hotel-form-edit__label-edit'>City:</label>
         <input
-          className='hotel-form__input'
+          className='hotel-form-edit__input-edit'
           type='text'
           name='city'
           value={formData.city}
           onChange={handleChange}
         />
       </div>
-
-      <div className='hotel-form__row'>
-        <label className='hotel-form__label'>Address:</label>
+      <div className='hotel-form-edit__row-edit'>
+        <label className='hotel-form-edit__label-edit'>Address:</label>
         <input
-          className='hotel-form__input'
+          className='hotel-form-edit__input-edit'
           type='text'
           name='address'
           value={formData.address}
           onChange={handleChange}
         />
       </div>
-
-      <div className='hotel-form__row'>
-        <label className='hotel-form__label' htmlFor='photo'>
+      <div className='hotel-form-edit__row-edit'>
+        <label className='hotel-form-edit__label-edit' htmlFor='photo'>
           Photo:
         </label>
         <input
@@ -200,24 +195,23 @@ const EditHotel = () => {
           accept='image/png, image/jpeg'
           multiple
           onChange={handleFilesChange}
+          className='hotel-form-edit__input-edit'
         />
       </div>
-
-      <div className='hotel-form__row'>
-        <label className='hotel-form__label'>Distance:</label>
+      <div className='hotel-form-edit__row-edit'>
+        <label className='hotel-form-edit__label-edit'>Distance:</label>
         <input
-          className='hotel-form__input'
+          className='hotel-form-edit__input-edit'
           type='text'
           name='distance'
           value={formData.distance}
           onChange={handleChange}
         />
       </div>
-
-      <div className='hotel-form__row'>
-        <label className='hotel-form__label'>Rating:</label>
+      <div className='hotel-form-edit__row-edit'>
+        <label className='hotel-form-edit__label-edit'>Rating:</label>
         <input
-          className='hotel-form__input'
+          className='hotel-form-edit__input-edit'
           type='number'
           name='rating'
           value={formData.rating}
@@ -226,40 +220,38 @@ const EditHotel = () => {
           max='5'
         />
       </div>
-
-      <div className='hotel-form__row'>
-        <label className='hotel-form__label'>Cheapest Price:</label>
+      <div className='hotel-form-edit__row-edit'>
+        <label className='hotel-form-edit__label-edit'>Cheapest Price:</label>
         <input
-          className='hotel-form__input'
+          className='hotel-form-edit__input-edit'
           type='number'
           name='cheapestPrice'
           value={formData.cheapestPrice}
           onChange={handleChange}
         />
       </div>
-
-      <div className='hotel-form__row'>
-        <label className='hotel-form__label'>Featured:</label>
+      <div className='hotel-form-edit__row-edit'>
+        <label className='hotel-form-edit__label-edit'>Featured:</label>
         <input
-          className='hotel-form__input'
+          className='hotel-form-edit__input-edit'
           type='text'
           name='featured'
           value={formData.featured}
           onChange={handleChange}
         />
       </div>
-
-      <div className='hotel-form__row'>
+      <div className='hotel-form-edit__row-edit'>
+        <label className='hotel-form-edit__label-edit'>Hotel rooms:</label>
         <button
+          className='hotel-form-edit__submit-btn-room'
           onClick={() => {
-            navigate(`/admin/listroom/${id}`);
+            navigate(`/adminmanagement/roomlist/${id}`);
           }}
         >
           View rooms list and modify
         </button>
       </div>
-
-      <button className='hotel-form__submit-btn' type='submit'>
+      <button className='hotel-form-edit__submit-btn-edit' type='submit'>
         Submit
       </button>
     </form>

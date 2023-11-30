@@ -3,16 +3,16 @@
   position: relative;
 
   .result {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
   .choose {
     display: flex;
-    gap: 10px;
-    padding: 10px 10px;
-    border: 1px solid grey;
-    border-radius: 15px;
+    gap: 1rem;
+    padding: 1rem 1rem;
+    border: 0.1rem solid grey;
+    border-radius: 1.5rem;
     width: fit-content;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 500;
     cursor: pointer;
     &:hover {
@@ -22,11 +22,11 @@
   .sort-list {
     position: absolute;
     background-color: white;
-    top: 100px;
-    left: 0px;
-    border-radius: 10px;
-    z-index: 5px;
-    box-shadow: 0 0 10px 2px rgb(235, 234, 234);
+    top: 10rem;
+    left: 0rem;
+    border-radius: 1rem;
+    z-index: 0.5rem;
+    box-shadow: 0 0 1rem 0.2rem rgb(235, 234, 234);
     overflow: hidden;
     cursor: pointer;
 
@@ -35,7 +35,7 @@
       flex-direction: column;
       .item {
         border-radius: inherit;
-        padding: 10px;
+        padding: 1rem;
 
         &:hover {
           background-color: rgb(235, 234, 234);
@@ -44,6 +44,6 @@
     }
   }
   .list {
-    margin-top: 20px;
+    margin-top: 2rem;
   }
 }

@@ -6,12 +6,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 70px;
+  gap: 2rem;
+  padding: 7rem;
   .email__text {
     font-weight: 200;
     .email__text--title {
-      font-size: 22px;
+      font-size: 2.2rem;
     }
     display: flex;
     flex-direction: column;
@@ -19,25 +19,25 @@
   }
   .email__box {
     display: flex;
-    gap: 10px;
+    gap: 1rem;
     .email__box--input {
-      height: 50px;
-      width: 400px;
+      height: 5rem;
+      width: 40rem;
       background-color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 0.5rem;
       font-weight: 500;
-      font-size: 18px;
-      padding-left: 10px;
+      font-size: 1.8rem;
+      padding-left: 1rem;
     }
     .email__box--button {
       background-color: rgb(37, 37, 246);
       color: white;
-      height: 50px;
-      width: 200px;
+      height: 5rem;
+      width: 20rem;
       border: none;
-      border-radius: 5px;
-      font-size: 22px;
+      border-radius: 0.5rem;
+      font-size: 2.2rem;
       font-weight: 400;
       overflow: hidden;
       cursor: pointer;

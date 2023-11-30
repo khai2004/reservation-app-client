@@ -4,19 +4,19 @@
 
   .home-guest {
     width: 100%;
-    width: 1024px;
+    width: 102.4rem;
     display: flex;
     justify-content: space-between;
-    gap: 15px;
+    gap: 1.5rem;
 
     .card {
-      height: 350px;
+      height: 35rem;
       width: 25%;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 0 10px 5px rgb(245, 241, 241);
-      border-radius: 10px;
-      gap: 5px;
+      box-shadow: 0 0 1rem 0.5rem rgb(245, 241, 241);
+      border-radius: 1rem;
+      gap: 0.5rem;
       cursor: pointer;
       transition: 0.5s;
       &:hover {
@@ -38,42 +38,48 @@
       }
       .detail {
         height: 40%;
-
-        padding: 15px;
+        padding: 0.5rem 1.5rem;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-
+        overflow: hidden;
+        justify-content: space-around;
+        font-size: 1.6rem;
         .desc {
           display: flex;
           flex-direction: column;
           justify-content: center;
+          gap: 0.5rem;
+          height: 60%;
           p {
-            font-size: 14px;
+            font-size: 1.4rem;
           }
 
-          .review {
+          .review-love {
             display: flex;
-            gap: 10px;
-            font-size: 12px;
-            .poitn {
-              padding: 2px;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.4rem;
+            .point {
               color: white;
               font-weight: bold;
-              border-radius: 25%;
+              border-radius: 0.5rem;
+              padding: 0.3rem 1rem;
               background-color: rgb(41, 41, 122);
             }
             p {
-              font-size: 12px;
+              font-size: 1.2rem;
             }
           }
         }
         .price {
-          font-size: 16px;
+          font-size: 1.4rem;
           display: flex;
-          justify-content: space-between;
+          align-items: center;
+          justify-content: end;
+          gap: 1rem;
           span {
             font-weight: 700;
+            font-size: 1.8rem;
           }
         }
       }

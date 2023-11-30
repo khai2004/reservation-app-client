@@ -67,53 +67,59 @@ const EditRoom = () => {
   };
 
   return (
-    <form className='room-form' onSubmit={handleSubmit}>
-      <label htmlFor='title'>Title:</label>
-      <input
-        type='text'
-        id='title'
-        name='title'
-        value={formData.title}
-        onChange={handleChange}
-        required
-      />
-
-      <label htmlFor='price'>Price:</label>
-      <input
-        type='number'
-        id='price'
-        name='price'
-        value={formData.price}
-        onChange={handleChange}
-        required
-      />
-
-      <label htmlFor='maxPeople'>Max People:</label>
-      <input
-        type='number'
-        id='maxPeople'
-        name='maxPeople'
-        value={formData.maxPeople}
-        onChange={handleChange}
-        required
-      />
-
-      <label htmlFor='desc'>Description:</label>
-      <textarea
-        id='desc'
-        name='desc'
-        value={formData.desc}
-        onChange={handleChange}
-        required
-      ></textarea>
-
-      <div className='room-numbers'>
-        <label>Rooms</label>
-        <textarea
-          value={formData.roomNumbers.map((room) => room.number)}
-          onChange={(e) => handleRoomsChange(e)}
-          placeholder='give comma between room numbers.'
+    <form className='room-form-edit' onSubmit={handleSubmit}>
+      <div className='room-form__row-edit'>
+        <label htmlFor='title'>Title:</label>
+        <input
+          type='text'
+          id='title'
+          name='title'
+          value={formData.title}
+          onChange={handleChange}
+          required
         />
+      </div>
+      <div className='room-form__row-edit'>
+        <label htmlFor='price'>Price:</label>
+        <input
+          type='number'
+          id='price'
+          name='price'
+          value={formData.price}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className='room-form__row-edit'>
+        <label htmlFor='maxPeople'>Max People:</label>
+        <input
+          type='number'
+          id='maxPeople'
+          name='maxPeople'
+          value={formData.maxPeople}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className='room-form__row-edit'>
+        <label htmlFor='desc'>Description:</label>
+        <textarea
+          id='desc'
+          name='desc'
+          value={formData.desc}
+          onChange={handleChange}
+          required
+        ></textarea>
+      </div>
+      <div className='room-form__row-edit'>
+        <div className='room-numbers'>
+          <label>Rooms</label>
+          <textarea
+            value={formData.roomNumbers.map((room) => room.number)}
+            onChange={(e) => handleRoomsChange(e)}
+            placeholder='give comma between room numbers.'
+          />
+        </div>
       </div>
 
       <button type='submit'>Submit</button>

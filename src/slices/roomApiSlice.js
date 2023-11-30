@@ -25,14 +25,7 @@ export const hotelsApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['Rooms'],
     }),
-    updateRoomAvailability: builder.mutation({
-      query: (data) => ({
-        url: `/rooms/availability/${data.id}`,
-        method: 'PUT',
-        body: data.allDateReservation,
-      }),
-      invalidatesTags: ['Rooms'],
-    }),
+
     createRooms: builder.mutation({
       query: (data) => ({
         url: `/rooms/${data.hotelid}`,
@@ -58,5 +51,4 @@ export const {
   useGetRoomsQuery,
   useCreateRoomsMutation,
   useDeleteRoomMutation,
-  useUpdateRoomAvailabilityMutation,
 } = hotelsApiSlice;

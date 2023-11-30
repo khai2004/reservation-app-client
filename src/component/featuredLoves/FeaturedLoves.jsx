@@ -1,6 +1,10 @@
 import React from 'react';
 import './featuredLoves.scss';
+import Rating from '../rating/Rating';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const FeaturedLove = ({ data, getSingleHotel }) => {
+  console.log(data);
   return (
     <div className='homeBox'>
       <div className='home-guest'>
@@ -16,12 +20,15 @@ const FeaturedLove = ({ data, getSingleHotel }) => {
             <div className='detail'>
               <div className='desc'>
                 <h4>{love.title}</h4>
-                <p>{love.address}</p>
-                <div className='review'>
-                  <div className='poitn'>8.7</div>
-                  <p>
-                    fabulius, <span>32323</span> reviews
-                  </p>
+                <p className='love-address'>{love.address}</p>
+                <div className='review-love'>
+                  <div className='point'>{love.rating}</div>
+                  <div>
+                    <p>
+                      <Rating hotel={love} />
+                    </p>
+                    <p>{love.reviews.length} reviews</p>
+                  </div>
                 </div>
               </div>
               <div className='price'>

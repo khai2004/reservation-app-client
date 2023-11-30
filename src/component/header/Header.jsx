@@ -19,12 +19,9 @@ import {
   useParams,
 } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import RoomDate from '../date/RoomDate';
+import PeopleSearch from '../peopleSearch/PeopleSearch';
 const Header = () => {
-  const [date, setDate] = useState(false);
-  const [people, setPeople] = useState(false);
-  const [adults, setAdults] = useState(0);
-  const [childrens, setChildrens] = useState(0);
-  const [rooms, setRoom] = useState(0);
   const [city, setCity] = useState('');
   const location = useLocation();
 
@@ -33,26 +30,7 @@ const Header = () => {
   const rating = urlSearchParams.get('rating') || '';
   const navigate = useNavigate();
 
-  const [state, setState] = useState([
-    {
-      startDate: new Date(),
-      endDate: null,
-      key: 'selection',
-    },
-  ]);
-
   const { pathname } = useLocation();
-
-  const handleDate = () => {
-    setDate((date) => !date);
-    setPeople((prev) => (prev = false));
-  };
-
-  const handlePeople = () => {
-    setPeople((prev) => !prev);
-
-    setDate((date) => (date = false));
-  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -104,122 +82,12 @@ const Header = () => {
                   onChange={(e) => setCity(e.target.value)}
                 />
               </div>
-              <div className='date' onClick={handleDate}>
-                <FontAwesomeIcon icon={faCalendarDays} />
-                <div className='setDate'>
-                  <div>{state[0]?.startDate?.toDateString()}</div>
-                  <div>—</div>
-                  <div>
-                    {state[0]?.endDate === null
-                      ? 'DD/MM/YYYY'
-                      : state[0]?.endDate?.toDateString()}
-                  </div>
-                </div>
+              <div className='date-search-bar'>
+                <RoomDate state={''} setState={' '} />
               </div>
-              {date && (
-                <div className='calendar'>
-                  <DateRange
-                    editableDateInputs={true}
-                    onChange={(item) => setState([item.selection])}
-                    moveRangeOnFirstSelection={false}
-                    ranges={state}
-                  />
-                </div>
-              )}
-              <div className='people' onClick={handlePeople}>
-                <FontAwesomeIcon icon={faPerson} />
-                <div className='setPeople'>
-                  <p>
-                    <span>{adults}</span> {adults > 1 ? 'adults' : 'adult'}
-                  </p>
-                  <p>
-                    <span>{childrens}</span>{' '}
-                    {childrens > 1 ? 'childrens' : 'children'}
-                  </p>
-                  <p>
-                    <span>{rooms}</span> {rooms > 1 ? 'rooms' : 'room'}
-                  </p>
-                </div>
+              <div className='people-search-bar'>
+                <PeopleSearch />
               </div>
-
-              {people && (
-                <div className='options'>
-                  <div className='options__option'>
-                    <div className='options__element'>
-                      <p options__label>{adults > 1 ? 'adults' : 'adult'}</p>
-                      <div className='options__counter'>
-                        <span
-                          className={`options__operator ${
-                            adults === 0 ? 'disabled' : ''
-                          }`}
-                          onClick={() =>
-                            adults > 0 && setAdults((pre) => pre - 1)
-                          }
-                        >
-                          -
-                        </span>
-                        {adults}
-                        <span
-                          className='options__operator'
-                          onClick={() => setAdults((pre) => pre + 1)}
-                        >
-                          +
-                        </span>
-                      </div>
-                    </div>
-                    <div className='options__element'>
-                      <p options__label>
-                        {childrens > 1 ? 'childrens' : 'children'}
-                      </p>
-                      <div className='options__counter'>
-                        <span
-                          className={`options__operator ${
-                            childrens === 0 ? 'disabled' : ''
-                          }`}
-                          onClick={() =>
-                            childrens > 0 && setChildrens((pre) => pre - 1)
-                          }
-                        >
-                          -
-                        </span>
-                        {childrens}
-                        <span
-                          className='options__operator'
-                          onClick={() => setChildrens((pre) => pre + 1)}
-                        >
-                          +
-                        </span>
-                      </div>
-                    </div>
-                    <div className='options__element'>
-                      <p options__label>{rooms > 1 ? 'rooms' : 'room'}</p>
-                      <div className='options__counter'>
-                        <span
-                          className={`options__operator ${
-                            rooms === 0 ? 'disabled' : ''
-                          }`}
-                          onClick={() => rooms && setRoom((pre) => pre - 1)}
-                        >
-                          -
-                        </span>
-                        {rooms}
-                        <span
-                          className='options__operator'
-                          onClick={() => setRoom((pre) => pre + 1)}
-                        >
-                          +
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <button
-                    className='options__button'
-                    onClick={() => setPeople(false)}
-                  >
-                    Done
-                  </button>
-                </div>
-              )}
               <button type='submit' className='search'>
                 Search
               </button>

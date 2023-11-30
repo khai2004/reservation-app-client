@@ -1,0 +1,57 @@
+/* Pagination.scss */
+.pagination {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 1rem 0.3rem rgba(#5a6181, 0.05);
+  border-radius: 0.5rem;
+
+  .pagination-text {
+    font-size: 1.4rem;
+    padding: 1rem;
+    & span {
+      font-weight: 600;
+    }
+  }
+
+  .pagination-buttons {
+    display: flex;
+    gap: 0.6rem;
+
+    .pagination-button {
+      background-color: var(--color-grey-50);
+      color: inherit;
+      border: none;
+      border-radius: var(--border-radius-sm);
+      font-weight: 500;
+      font-size: 1.4rem;
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.2rem;
+      transition: all 0.3s;
+
+      &:has(span:last-child) {
+        padding-left: 0.4rem;
+      }
+
+      &:has(span:first-child) {
+        padding-right: 0.4rem;
+      }
+
+      & svg {
+        height: 1.8rem;
+        width: 1.8rem;
+      }
+
+      &:hover:not(:disabled) {
+        background-color: var(--color-brand-600);
+        color: var(--color-brand-50);
+      }
+    }
+  }
+}

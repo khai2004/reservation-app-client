@@ -1,60 +1,62 @@
 .searchItem {
-  border: 1px solid lightgray;
-  padding: 10px;
-  border-radius: 5px;
+  border: 0.1rem solid lightgray;
+  padding: 1rem;
+  border-radius: 0.5rem;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 20px;
-  z-index: 5px;
-  box-shadow: 0 0 10px 1px rgb(249, 246, 246);
+  gap: 2rem;
+  margin-bottom: 2rem;
+  z-index: 0.5rem;
+  box-shadow: 0 0 1rem 0.1rem rgb(249, 246, 246);
   cursor: pointer;
   .siImg {
-    width: 200px;
-    height: 200px;
+    width: 20rem;
+    height: 20rem;
     object-fit: cover;
   }
   .siDesc {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1rem;
     flex: 2;
 
     .siTitle {
-      font-size: 20px;
+      font-size: 2rem;
       color: #0071c2;
+      margin-bottom: 1rem;
     }
 
     .siDistance {
-      font-size: 12px;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
     }
 
     .siTaxiOp {
-      font-size: 12px;
+      font-size: 1.2rem;
       background-color: #008009;
       color: white;
       width: max-content;
-      padding: 3px;
-      border-radius: 5px;
+      padding: 0.3rem;
+      border-radius: 0.5rem;
     }
 
     .siSubtitle {
-      font-size: 12px;
+      font-size: 1.2rem;
       font-weight: bold;
     }
 
     .siFeatures {
-      font-size: 12px;
+      font-size: 1.2rem;
     }
 
     .siCancelOp {
-      font-size: 12px;
+      font-size: 1.2rem;
       color: #008009;
       font-weight: bold;
     }
 
     .siCancelOpSubtitle {
-      font-size: 12px;
+      font-size: 1.2rem;
       color: #008009;
     }
   }
@@ -74,11 +76,12 @@
 
 .siRating > span {
   font-weight: 500;
+  padding: 0.5rem;
 }
-.siRating > button {
+.siRating > p {
   background-color: #003580;
   color: white;
-  padding: 5px;
+  padding: 0.5rem 1.5rem;
   font-weight: bold;
   border: none;
 }
@@ -87,15 +90,15 @@
   text-align: right;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.5rem;
 }
 
 .siPrice {
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .siTaxOp {
-  font-size: 12px;
+  font-size: 1.2rem;
   color: gray;
 }
 
@@ -103,8 +106,8 @@
   background-color: #0071c2;
   color: white;
   font-weight: bold;
-  padding: 10px 5px;
+  padding: 1rem 0.5rem;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 0.5rem;
 }

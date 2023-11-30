@@ -13,7 +13,6 @@ const ManageHotel = () => {
   const [render, setRender] = useState(0);
   const navigate = useNavigate();
   const { data, isLoading, error } = useGetHotelsQuery('');
-  console.log(data);
 
   const [deleteHotel, { isLoading: loadingDelete }] = useDeleteHotelMutation();
 
@@ -28,36 +27,60 @@ const ManageHotel = () => {
   };
 
   return (
-    <div>
-      <div className='manage-box'>
-        <div className='box'>
-          <div className='header'>Hotel</div>
-          <div className='list-hotel'>
-            {data?.hotels?.map((hotel) => (
-              <div className='single-hotel' key={`${hotel._id}-${render}`}>
-                <div className='hotel-id'>{hotel._id}</div>
-                <div className='hotel-name'>{hotel.title}</div>
-                <div className='created'>
-                  {new Date(hotel.createdAt).toUTCString()}
-                </div>
-                <div
-                  className='edit'
-                  onClick={() => navigate(`/admin/edithotel/${hotel?._id}`)}
+    <div className='manage-hotel-box'>
+      <div className='list-hotel'>
+        <div className='single-hotel-header'>
+          <h2 className='hotel-name'>Hotel title</h2>
+          <h2 className='created'>Date created</h2>
+          <h2 className='hotel-id'>Rooms</h2>
+          <h2 className='edit-colum'>
+            <span>Edit</span> Delete
+          </h2>
+        </div>
+        {data?.hotels?.map((hotel) => (
+          <>
+            <hr style={{ height: '3px', width: '100%', marginLeft: '-1px' }} />
+            <div className='single-hotel' key={`${hotel._id}-${render}`}>
+              <div className='hotel-name'>{hotel.title}</div>
+
+              <div className='created'>
+                {new Date(hotel.createdAt).toLocaleString()}
+              </div>
+              <div className='hotel-id'>
+                <p style={{ width: '30%' }}>
+                  {hotel.rooms.length}{' '}
+                  {hotel.rooms.length > 1 ? 'Rooms' : 'Room'}
+                </p>
+                <button
+                  className='edit-btn'
+                  onClick={() => {
+                    navigate(`/adminmanagement/roomlist/${hotel._id}`);
+                  }}
+                >
+                  Check rooms
+                </button>
+              </div>
+              <div className='edit-colum'>
+                <button
+                  className='edit-btn edit-admin-btn'
+                  onClick={() =>
+                    navigate(`/adminmanagement/hoteledit/${hotel?._id}`)
+                  }
                 >
                   <FontAwesomeIcon icon={faPenToSquare} />
-                </div>
-                <div
-                  className='delete'
+                </button>
+                <button
+                  className='edit-btn delete-btn'
                   onClick={() => {
                     handleDeleteHotel(hotel._id);
                   }}
                 >
                   <FontAwesomeIcon icon={faTrash} />
-                </div>
+                </button>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </>
+        ))}
       </div>
     </div>
   );

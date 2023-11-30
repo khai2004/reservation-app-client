@@ -4,6 +4,7 @@ import { useRegisterMutation } from '../../slices/userApiSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCredential } from '../../slices/authSlice';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const [username, setName] = useState('');
@@ -13,19 +14,20 @@ const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const data = { username, email, phone, password };
-  console.log(data);
   const [registerApi, { isLoading }] = useRegisterMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const data = { username, email, phone, password };
     try {
-      const res = await registerApi(data);
-      dispatch(setCredential({ ...res }));
+      const res = await registerApi(data).unwrap();
+
+      dispatch(setCredential(res));
+      toast.success('Register success🎉');
     } catch (error) {
-      console.log(error);
+      toast.error(error?.data?.message || 'Something went wrong. Try again!');
     }
   };
 
@@ -34,6 +36,7 @@ const Register = () => {
       <h2 className='register-form__title'>Register</h2>
       <form onSubmit={handleSubmit} className='register-form__form'>
         <input
+          required
           type='text'
           name='username'
           value={username}
@@ -42,6 +45,7 @@ const Register = () => {
           className='register-form__form__input'
         />
         <input
+          required
           type='email'
           name='email'
           value={email}
@@ -50,6 +54,7 @@ const Register = () => {
           className='register-form__form__input'
         />
         <input
+          required
           type='password'
           name='password'
           value={password}
@@ -59,6 +64,7 @@ const Register = () => {
         />
 
         <input
+          required
           type='tel'
           name='phone'
           value={phone}

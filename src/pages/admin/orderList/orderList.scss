@@ -1,0 +1,118 @@
+.manage-order-box {
+  color: grey;
+  width: 100%;
+
+  .admin-list-order {
+    display: flex;
+    flex-direction: column;
+
+    .single-order-header {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 0.5rem 0.5rem 0 0;
+      gap: 1rem;
+      font-size: 1.4rem;
+      background-color: rgb(215, 215, 215);
+
+      .order-hotel {
+        width: 20%;
+      }
+      .order-room {
+        width: 15%;
+      }
+      .order-name {
+        width: 15%;
+      }
+      .order-created-at {
+        width: 20%;
+      }
+      .order-status {
+        width: 15%;
+      }
+      .order-amount {
+        width: 10%;
+      }
+      .edit-colum-order {
+        width: 5%;
+      }
+    }
+    .single-order {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      gap: 1rem;
+      background-color: rgb(250, 250, 250);
+      font-weight: 700;
+      font-size: 1.6rem;
+
+      .order-hotel {
+        width: 20%;
+      }
+      .order-list-room {
+        width: 15%;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .order-admin-name {
+        width: 15%;
+      }
+
+      .order-created-at {
+        width: 20%;
+      }
+      .order-status {
+        width: 15%;
+
+        .edit-admin-confirmed {
+          padding: 0.5rem 1rem;
+          border: none;
+          font-weight: 700;
+          border-radius: 1rem;
+          font-size: 1.4rem;
+          cursor: pointer;
+        }
+        .edit-confirmed {
+          background-color: greenyellow;
+          color: green;
+          &:hover {
+            background-color: rgb(194, 221, 255);
+          }
+        }
+        .edit-unconformed {
+          background-color: rgb(194, 221, 255);
+          color: blue;
+          &:hover {
+            background-color: greenyellow;
+          }
+        }
+      }
+      .order-admin-amount {
+        width: 10%;
+      }
+      .edit-colum-order {
+        width: 5%;
+        display: flex;
+        gap: 0.5rem;
+        position: relative;
+
+        .delete-btn {
+          width: 100%;
+          padding: 0.5rem 0;
+          border: none;
+          border-radius: 0.5rem;
+          cursor: pointer;
+          color: white;
+          background-color: rgb(255, 47, 47);
+          &:hover {
+            background-color: rgb(255, 72, 72);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

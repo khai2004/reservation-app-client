@@ -9,6 +9,7 @@ const FeaturedPopular = () => {
   const navigate = useNavigate();
 
   const handleClick = (city) => {
+    console.log(city);
     navigate(`/hotels?city=${city}&rating=${rating}&type=${type}`);
   };
   return (
@@ -36,11 +37,11 @@ const FeaturedPopular = () => {
             />
           </div>
         </div>
-        <div
-          className='featured__child1'
-          onClick={() => handleClick('Nha Trang')}
-        >
-          <div className='featured__child--element'>
+        <div className='featured__child1'>
+          <div
+            className='featured__child--element'
+            onClick={() => handleClick('Nha Trang')}
+          >
             <h2>Nha Trang</h2>
             <img
               src='https://cf.bstatic.com/xdata/images/city/600x600/688844.jpg?k=02892d4252c5e4272ca29db5faf12104004f81d13ff9db724371de0c526e1e15&o='

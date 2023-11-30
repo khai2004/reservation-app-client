@@ -1,11 +1,11 @@
 .hotels-list {
   display: flex;
   justify-content: center;
-  margin: 50px auto;
+  margin: 5rem auto;
   &__container {
     width: 100%;
-    width: 1024px;
+    width: 102.4rem;
     display: flex;
-    gap: 20px;
+    gap: 2rem;
   }
 }

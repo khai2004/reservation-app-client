@@ -1,20 +1,20 @@
 .homeContainer {
   display: flex;
   justify-content: space-between;
-  margin-top: 50px;
+  margin-top: 5rem;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 3rem;
   .textHome {
-    width: 1024px;
+    width: 102.4rem;
 
     h1 {
-      font-size: 24px;
+      font-size: 2.4rem;
     }
   }
 
   .homeTiltles {
-    width: 1024px;
-    font-size: 24px;
+    width: 102.4rem;
+    font-size: 2.4rem;
   }
 }

@@ -1,23 +1,24 @@
 .fBox {
-  margin-top: 20px;
+  margin-top: 10rem;
   display: flex;
   justify-content: center;
-
+  background-color: rgb(227, 236, 238);
   .footer {
+    padding: 2rem;
     width: 100%;
-    width: 1024px;
-    font-size: 12px;
+    width: 102.4rem;
+    font-size: 1.2rem;
 
     .fLists {
       width: 100%;
       display: flex;
       justify-content: space-between;
-      margin-bottom: 50px;
+      margin-bottom: 5rem;
       .fList {
         list-style: none;
         padding: 0;
         .fListItem {
-          margin-bottom: 10px;
+          margin-bottom: 1rem;
           color: #003580;
           cursor: pointer;
           &:hover {

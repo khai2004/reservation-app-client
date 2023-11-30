@@ -3,13 +3,15 @@ import { apiSlice } from './apiSlice';
 export const hotelsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getHotels: builder.query({
-      query: ({ type, rating, city, price }) => ({
+      query: ({ type, rating, city, price, page, pageSize }) => ({
         url: '/hotels',
         params: {
           type,
           rating,
           city,
           price,
+          page,
+          pageSize,
         },
       }),
       providesTags: ['Hotels'],
@@ -64,16 +66,10 @@ export const hotelsApiSlice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: 5,
     }),
-
     getRatingHotel: builder.query({
-      query: () => ({
+      query: (city) => ({
         url: '/hotels/rating',
-      }),
-      keepUnusedDataFor: 5,
-    }),
-    getTypeHotel: builder.query({
-      query: () => ({
-        url: '/hotels/type',
+        params: { city },
       }),
       keepUnusedDataFor: 5,
     }),
@@ -94,6 +90,6 @@ export const {
   useDeleteHotelMutation,
   useGetTopHotelsQuery,
   useGetRatingHotelQuery,
-  useGetTypeHotelQuery,
   useGetHotelsRoomsQuery,
+  useCreateReviewMutation,
 } = hotelsApiSlice;

@@ -3,14 +3,14 @@ import './navbar.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLogoutMutation } from '../../slices/userApiSlice';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { logout } from '../../slices/authSlice';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSuitcase, faUser } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = ({ login }) => {
-  const navigate = useNavigate();
-  const [user, setUser] = useState(false);
-
   const [logoutApi, { isLoading }] = useLogoutMutation();
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.auth);
@@ -24,7 +24,6 @@ const Navbar = ({ login }) => {
       toast.error(err?.data?.message || err.error);
     }
   };
-
   return (
     <div className='navbar'>
       <div className='navContainer'>
@@ -42,27 +41,27 @@ const Navbar = ({ login }) => {
               </Link>
             </div>
           ) : (
-            <div className='user'>
-              <img
-                src={
-                  userInfo?.data?.image ||
-                  'https://tse4.mm.bing.net/th?id=OIP.YAJlHz4zchNP5zIfsajE9AHaFr&pid=Api&P=0&h=220'
-                }
-                alt={userInfo?.data?.username}
-                onClick={() => {
-                  navigate('/profile');
-                }}
-              />
-              <p
-                onClick={() => {
-                  navigate('/profile');
-                }}
-              >
-                {userInfo?.data?.username}
-              </p>
-              <button className='btn' onClick={handleLogOut}>
-                Sign out
-              </button>
+            <div>
+              <div className='user'>
+                {userInfo.isAdmin && (
+                  <div
+                    className='admin-nav-element'
+                    onClick={() => navigate('/adminmanagement')}
+                  >
+                    <FontAwesomeIcon icon={faSuitcase} />
+                    <p>Admin management</p>
+                  </div>
+                )}
+                <img
+                  src={
+                    userInfo?.image?.url ||
+                    'https://cdn-icons-png.flaticon.com/128/149/149071.png'
+                  }
+                  alt={userInfo?.username}
+                />
+                <p className='user-nav'>{userInfo?.username}</p>
+                <button onClick={handleLogOut}>Sign out</button>
+              </div>
             </div>
           ))}
       </div>

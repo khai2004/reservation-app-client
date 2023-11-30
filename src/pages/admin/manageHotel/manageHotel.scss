@@ -1,8 +1,106 @@
-.manage-box {
-  display: flex;
-  justify-content: center;
-  padding: 50px;
-  .box {
-    width: 1024px;
+.manage-hotel-box {
+  color: grey;
+  width: 100%;
+  .list-hotel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .single-hotel-header {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      gap: 1rem;
+      border-radius: 0.5rem 0.5rem 0 0;
+      background-color: rgb(232, 230, 230);
+      font-size: 1.4rem;
+
+      .hotel-name {
+        width: 25%;
+      }
+      .hotel-id {
+        width: 25%;
+      }
+
+      .created {
+        width: 25%;
+      }
+      .edit-colum {
+        width: 25%;
+        display: flex;
+        gap: 40%;
+        justify-content: center;
+      }
+    }
+    .single-hotel {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      font-weight: 500;
+      gap: 1rem;
+      background-color: rgb(250, 250, 250);
+      font-size: 1.6rem;
+      font-weight: 700;
+      .hotel-id {
+        width: 25%;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        .edit-btn {
+          color: white;
+          width: 50%;
+          font-size: 1.6rem;
+          background-color: #003b95;
+          border: none;
+          padding: 0.5rem 0.5rem;
+          border-radius: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          &:hover {
+            background-color: #5f9bf5;
+          }
+        }
+      }
+      .hotel-name {
+        width: 25%;
+      }
+      .created {
+        width: 25%;
+      }
+      .edit-colum {
+        width: 25%;
+        display: flex;
+        justify-content: space-between;
+        .edit-btn {
+          color: white;
+          background-color: #003b95;
+          border: none;
+          width: 40%;
+          padding: 0.5rem 0;
+          border-radius: 1rem;
+          font-size: 2.2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          &:hover {
+            background-color: #5f9bf5;
+          }
+        }
+        .edit-admin-btn {
+          background-color: rgb(6, 194, 6);
+          &:hover {
+            background-color: rgb(2, 160, 2);
+          }
+        }
+        .delete-btn {
+          background-color: rgb(255, 66, 66);
+          &:hover {
+            background-color: rgb(250, 45, 45);
+          }
+        }
+      }
+    }
   }
 }

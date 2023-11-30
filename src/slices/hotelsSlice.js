@@ -3,19 +3,26 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   hotels: localStorage.getItem('hotels')
     ? JSON.parse(localStorage.getItem('hotels'))
-    : null,
+    : {
+        pageSize: {},
+        pageNumber: {},
+        type: {},
+        price: {},
+        rating: {},
+        city: {},
+      },
 };
 
-const authSlice = createSlice({
+const hotelSlice = createSlice({
   name: 'hotels',
   initialState,
   reducers: {
-    setCredential: (state, action) => {
+    setHotelUrl: (state, action) => {
       state.hotels = action.payload;
       localStorage.setItem('hotels', JSON.stringify(action.payload));
     },
   },
 });
 
-export const { setCredential, logout } = authSlice.actions; //dispatch .setCredential
-export default authSlice.reducer;
+export const { setHotelUrl } = hotelSlice.actions; //dispatch .setCredential
+export default hotelSlice.reducer;

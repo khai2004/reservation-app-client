@@ -1,0 +1,30 @@
+.admin-component {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+  margin-left: 20vw;
+  width: 80vw;
+  .admin-component-box {
+    display: flex;
+    padding: 4rem 6rem 4rem 6rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    .navbar {
+      width: 80vw;
+      height: 10vh;
+      position: fixed;
+      top: 0;
+      left: 20vw;
+    }
+    .outlet {
+      background-color: rgb(253, 253, 253);
+      border-radius: 1rem;
+      width: 100%;
+      box-shadow: 0 0 1.5rem 0.1rem rgb(250, 250, 250);
+      border: 0.1rem solid rgb(240, 240, 240);
+      overflow: hidden;
+    }
+  }
+}

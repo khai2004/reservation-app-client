@@ -1,8 +1,83 @@
-.manage-box {
-  display: flex;
-  justify-content: center;
-  padding: 50px;
-  .box {
-    width: 1024px;
+.manage-room-box {
+  color: grey;
+  width: 100%;
+  .admin-list-room {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .admin-create-room {
+      position: fixed;
+      top: 15vh;
+      right: 5vw;
+    }
+    .single-room-header {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      gap: 1rem;
+      font-size: 1.4rem;
+
+      .room-id {
+        width: 25%;
+      }
+      .room-name {
+        width: 20%;
+      }
+      .room-admin-price {
+        width: 15%;
+      }
+      .room-created-at {
+        width: 20%;
+      }
+      .edit-colum-room {
+        width: 20%;
+      }
+    }
+    .single-room {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      gap: 1rem;
+      background-color: white;
+      font-size: 1.6rem;
+      font-weight: 700;
+      .room-id {
+        width: 25%;
+      }
+      .room-name {
+        width: 20%;
+      }
+      .room-admin-price {
+        width: 15%;
+      }
+      .room-created-at {
+        width: 20%;
+      }
+      .edit-colum-room {
+        width: 20%;
+        display: flex;
+        justify-content: space-around;
+        .edit-btn {
+          color: white;
+          background-color: #003b95;
+          border: none;
+          width: 40%;
+          border-radius: 1rem;
+          font-size: 2.2rem;
+          cursor: pointer;
+          &:hover {
+            background-color: #5f9bf5;
+          }
+        }
+        .delete-btn {
+          background-color: rgb(255, 47, 47);
+          &:hover {
+            background-color: rgb(255, 72, 72);
+          }
+        }
+      }
+    }
   }
 }

@@ -9,11 +9,9 @@ import HotelsList from './pages/hotelsList/HotelsList';
 import SingleHotel from './pages/singleHotel/SingleHotel';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
-
 import { Provider } from 'react-redux';
 import store from './store.js';
-import PageNotFound from './pages/pageNotFound/PageNotFound.jsx';
-import AdminRoute from './component/adminRoute/AdminRoute.jsx';
+import AdminRoute from './component/admin/adminRoute/AdminRoute.jsx';
 import ProtectRoute from './component/protectRoute/ProtectRoute.jsx';
 import Profile from './pages/profile/Profile.jsx';
 import HotelForm from './pages/admin/createHotel/HotelForm.jsx';
@@ -24,6 +22,14 @@ import EditRoom from './pages/admin/editroom/EditRoom.jsx';
 import ListRoom from './pages/admin/listRoom/ListRoom.jsx';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PlaceOrder from './pages/placeOrder/PlaceOrder.jsx';
+import MyOrder from './pages/myOrder/MyOrder.jsx';
+import AdminDashBoard from './pages/admin/adminDashBoard/AdminDashBoard.jsx';
+import AdminHome from './pages/admin/adminHome/AdminHome.jsx';
+import User from './pages/admin/user/User.jsx';
+import PageNotFound from './pages/pageNotFound/PageNotFound.jsx';
+import OrderList from './pages/admin/orderList/OrderList.jsx';
+import Paganation from './component/paganation/Paganation.jsx';
 
 const router = createBrowserRouter([
   {
@@ -60,44 +66,74 @@ const router = createBrowserRouter([
             path: '/profile',
             element: <Profile />,
           },
-        ],
-      },
-      {
-        path: '/error',
-        element: <PageNotFound />,
-      },
-      {
-        path: '',
-        element: <AdminRoute />,
-        children: [
           {
-            path: '/admin/hotelform',
-            element: <HotelForm />,
+            path: '/myorder/:id',
+            element: <MyOrder />,
           },
           {
-            path: '/admin/createroom/:id',
-            element: <CreateRoom />,
-          },
-
-          {
-            path: '/admin/managehotel',
-            element: <ManageHotel />,
-          },
-          {
-            path: '/admin/edithotel/:id',
-            element: <EditHotel />,
-          },
-          {
-            path: '/admin/listroom/:id',
-            element: <ListRoom />,
-          },
-          {
-            path: '/admin/editroom/:id',
-            element: <EditRoom />,
+            path: '/placeorder',
+            element: <PlaceOrder />,
           },
         ],
       },
     ],
+  },
+  {
+    path: '',
+    element: <AdminRoute />,
+    children: [
+      {
+        path: '/adminmanagement',
+        element: <AdminDashBoard />,
+        children: [
+          {
+            path: '/adminmanagement/home',
+            element: <AdminHome />,
+          },
+          {
+            path: '/adminmanagement/hotelcreate',
+            element: <HotelForm />,
+          },
+          {
+            path: '/adminmanagement/roomcreate/:id',
+            element: <CreateRoom />,
+          },
+
+          {
+            path: '/adminmanagement/hotellist',
+            element: <ManageHotel />,
+          },
+          {
+            path: '/adminmanagement/hoteledit/:id',
+            element: <EditHotel />,
+          },
+          {
+            path: '/adminmanagement/roomlist/:id',
+            element: <ListRoom />,
+          },
+          {
+            path: '/adminmanagement/roomedit/:id',
+            element: <EditRoom />,
+          },
+          {
+            path: '/adminmanagement/user',
+            element: <User />,
+          },
+          {
+            path: '/adminmanagement/orderlist',
+            element: <OrderList />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    path: '/paganation',
+    element: <Paganation />,
+  },
+  {
+    path: '*',
+    element: <PageNotFound />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,32 +1,88 @@
-.roomTable {
+.search-room-component {
+  width: 72rem;
+  margin-bottom: 2rem;
+}
+.fail-to-check {
+  display: flex;
+  justify-content: center;
+  color: green;
+  padding: 1rem;
+}
+table {
   width: 100%;
-  background-color: rgb(1, 1, 1);
-
-  .element {
-    z-index: 5;
-    background-color: rgb(255, 255, 255);
-
+  border-collapse: collapse;
+  border: 0.1rem solid rgb(0, 174, 255);
+  tbody,
+  thead {
     tr {
       th {
-        font-size: 16px;
-        padding: 5px;
-        background-color: rgb(22, 22, 220);
+        padding: 0.5rem;
+        z-index: 5;
+        background-color: rgb(80, 80, 255);
         color: white;
+        border: 0.1rem solid rgb(0, 174, 255);
       }
       td {
-        padding: 10px;
-        font-weight: 600;
-        button {
-          width: 100%;
-          height: 100%;
-          border: none;
-          background-color: white;
-          font-size: 16px;
-          font-weight: 500;
-          cursor: pointer;
-          &:hover {
-            color: blue;
+        vertical-align: top;
+        padding: 0.5rem;
+        z-index: 5;
+        background-color: rgb(255, 255, 255);
+        border: 0.1rem solid rgb(0, 174, 255);
+      }
+
+      .title-table {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        h3 {
+          color: blue;
+        }
+      }
+      .number-guest-table {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .price-table {
+        display: flex;
+        justify-content: center;
+      }
+
+      .body-reserve {
+        display: flex;
+        height: 60%;
+        border-radius: 2rem;
+        padding-bottom: 2rem;
+
+        .choose-room {
+          display: flex;
+          flex-wrap: wrap;
+
+          .check-room {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 2.5rem;
+            input {
+              width: 3rem;
+              height: 3rem;
+            }
           }
+        }
+      }
+      .checking-table {
+        font-size: 1.8rem;
+        border: none;
+        font-weight: 700;
+        color: white;
+        background-color: rgb(0, 174, 255);
+        width: 100%;
+        padding: 0.5rem 0 0.5rem 0;
+        border-radius: 0.3rem;
+        cursor: pointer;
+        &:hover {
+          background-color: rgb(223, 223, 223);
         }
       }
     }
