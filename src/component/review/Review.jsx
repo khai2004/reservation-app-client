@@ -40,7 +40,7 @@ const Review = ({ review }) => {
         {Array(review.rating)
           .fill()
           .map((item, i) => (
-            <FontAwesomeIcon icon={faStar} color='#fac815' />
+            <FontAwesomeIcon icon={faStar} color='#fac815' key={i} />
           ))}
         <span>{review.rating}</span>
       </div>

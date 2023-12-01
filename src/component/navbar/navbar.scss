@@ -57,6 +57,9 @@
       .user-nav {
         color: white;
         font-weight: bold;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
       }
       button {
         padding: 0.5rem;

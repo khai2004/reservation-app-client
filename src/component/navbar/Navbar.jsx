@@ -52,14 +52,17 @@ const Navbar = ({ login }) => {
                     <p>Admin management</p>
                   </div>
                 )}
-                <img
-                  src={
-                    userInfo?.image?.url ||
-                    'https://cdn-icons-png.flaticon.com/128/149/149071.png'
-                  }
-                  alt={userInfo?.username}
-                />
-                <p className='user-nav'>{userInfo?.username}</p>
+                <div className='user-nav' onClick={() => navigate('/profile')}>
+                  <img
+                    src={
+                      userInfo?.image?.url ||
+                      'https://cdn-icons-png.flaticon.com/128/149/149071.png'
+                    }
+                    alt={userInfo?.username}
+                  />
+                  <p>{userInfo?.username}</p>
+                </div>
+
                 <button onClick={handleLogOut}>Sign out</button>
               </div>
             </div>

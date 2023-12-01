@@ -3,7 +3,7 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import './paganation.scss';
 const Pagination = ({ count }) => {
-  const PAGE_SIZE = 1;
+  const PAGE_SIZE = 10;
 
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = !searchParams.get('page')

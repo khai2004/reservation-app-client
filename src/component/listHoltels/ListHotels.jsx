@@ -109,7 +109,7 @@ const ListHotels = () => {
                 {data?.hotels?.map((hotel) => (
                   <SingleHotel hotel={hotel} key={hotel._id} />
                 ))}
-                <Paganation count={data.count} />
+                <Paganation count={data?.hotels?.length} />
               </div>
             </div>
           )}{' '}

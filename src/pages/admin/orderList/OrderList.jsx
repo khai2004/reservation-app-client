@@ -7,23 +7,13 @@ import { toast } from 'react-toastify';
 import {
   useDeleteOrderMutation,
   useGetAllOrdersQuery,
-  useUpdateOrderMutation,
 } from '../../../slices/orderApiSlice';
+import { Link } from 'react-router-dom';
 const OrderList = () => {
-  const [updateOrder, { isLoading: updateLoading }] = useUpdateOrderMutation();
   const [deleteOrder, { isLoading: deleteOrderLoading }] =
     useDeleteOrderMutation();
   const { data, isLoading, error } = useGetAllOrdersQuery();
-  const handleUpdate = async (e, confirm, id) => {
-    e.preventDefault();
-    const data = { id: id, confirm: !confirm };
-    try {
-      const res = await updateOrder(data).unwrap();
-      console.log(res);
-    } catch (error) {
-      toast.error('Something went wrong. Try again!');
-    }
-  };
+
   const handleDeleteOrder = async (e, id) => {
     e.preventDefault();
     try {
@@ -53,7 +43,9 @@ const OrderList = () => {
                 style={{ height: '3px', width: '100%', marginLeft: '-1px' }}
               />
               <div className='single-order' key={order._id}>
-                <div className='order-hotel'>{order?.hotel?.title}</div>
+                <div className='order-hotel'>
+                  <p>{order?.hotel?.title}</p>
+                </div>
                 <div className='order-list-room'>
                   {order?.roomReserve.map((room) => (
                     <p>{room.roomNumber}</p>
@@ -70,10 +62,9 @@ const OrderList = () => {
                     {order.dateNumber.length > 1 ? 'days' : 'day'}
                   </p>
                   <p>
-                    {new Date(order.dateNumber[0] * 1000).toLocaleDateString()}{' '}
-                    -{' '}
+                    {new Date(order.dateNumber[0]).toLocaleDateString()} -{' '}
                     {new Date(
-                      order.dateNumber[order.dateNumber.length - 1] * 1000
+                      order.dateNumber[order.dateNumber.length - 1]
                     ).toLocaleDateString()}
                   </p>
                 </div>
@@ -82,7 +73,6 @@ const OrderList = () => {
                     className={`
                     edit-admin-confirmed
                     ${order.confirm ? 'edit-confirmed' : 'edit-unconformed'}`}
-                    onClick={(e) => handleUpdate(e, order?.confirm, order?._id)}
                   >
                     {order.confirm ? 'Confirmed' : 'Unconformed'}
                   </button>
@@ -92,6 +82,9 @@ const OrderList = () => {
                 </div>
 
                 <div className='edit-colum-order'>
+                  <Link to={`/myorder/${order?._id}`}>
+                    <p className='detail'>Details</p>
+                  </Link>{' '}
                   <button
                     className='edit-btn delete-btn'
                     onClick={(e) => handleDeleteOrder(e, order?._id)}

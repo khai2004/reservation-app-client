@@ -5,7 +5,9 @@
   .admin-list-order {
     display: flex;
     flex-direction: column;
-
+    p {
+      font-size: 1.4rem;
+    }
     .single-order-header {
       display: flex;
       align-items: center;
@@ -19,19 +21,19 @@
         width: 20%;
       }
       .order-room {
-        width: 15%;
+        width: 10%;
       }
       .order-name {
-        width: 15%;
+        width: 18%;
       }
       .order-created-at {
-        width: 20%;
-      }
-      .order-status {
         width: 15%;
       }
-      .order-amount {
+      .order-status {
         width: 10%;
+      }
+      .order-amount {
+        width: 8%;
       }
       .edit-colum-order {
         width: 5%;
@@ -44,35 +46,35 @@
       border-radius: 0.5rem;
       gap: 1rem;
       background-color: rgb(250, 250, 250);
-      font-weight: 700;
+      font-weight: 600;
       font-size: 1.6rem;
 
       .order-hotel {
         width: 20%;
       }
       .order-list-room {
-        width: 15%;
+        width: 10%;
         display: flex;
         align-items: center;
         gap: 0.5rem;
       }
 
       .order-admin-name {
-        width: 15%;
+        width: 18%;
       }
 
       .order-created-at {
-        width: 20%;
+        width: 15%;
       }
       .order-status {
-        width: 15%;
+        width: 10%;
 
         .edit-admin-confirmed {
           padding: 0.5rem 1rem;
           border: none;
           font-weight: 700;
           border-radius: 1rem;
-          font-size: 1.4rem;
+          font-size: 1.2rem;
           cursor: pointer;
         }
         .edit-confirmed {
@@ -91,16 +93,25 @@
         }
       }
       .order-admin-amount {
-        width: 10%;
+        width: 8%;
       }
       .edit-colum-order {
-        width: 5%;
+        width: 10%;
         display: flex;
-        gap: 0.5rem;
+        justify-content: space-between;
         position: relative;
+        align-items: center;
+
+        .detail {
+          cursor: pointer;
+          width: 45%;
+          &:hover {
+            color: blue;
+          }
+        }
 
         .delete-btn {
-          width: 100%;
+          width: 45%;
           padding: 0.5rem 0;
           border: none;
           border-radius: 0.5rem;

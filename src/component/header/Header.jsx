@@ -11,14 +11,7 @@ import {
   faTaxi,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { DateRange } from 'react-date-range';
-import {
-  Navigate,
-  useLocation,
-  useNavigate,
-  useParams,
-} from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import RoomDate from '../date/RoomDate';
 import PeopleSearch from '../peopleSearch/PeopleSearch';
 const Header = () => {

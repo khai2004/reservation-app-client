@@ -1,6 +1,9 @@
 import './sideBar.scss';
 import { useLocation, useSearchParams } from 'react-router-dom';
-import { useGetRatingHotelQuery } from '../../slices/hotelsApiSlice';
+import {
+  useGetHotelsQuery,
+  useGetRatingHotelQuery,
+} from '../../slices/hotelsApiSlice';
 const SideBar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -19,7 +22,12 @@ const SideBar = () => {
   const location = useLocation();
   const urlSearchParams = new URLSearchParams(location.search);
   const city = urlSearchParams.get('city') || '';
-
+  const {
+    data: hotels,
+    isLoading: hotelsLoading,
+    error: hotelsError,
+  } = useGetHotelsQuery('');
+  console.log(hotels?.hotels[0]?.address);
   const {
     data: ratings,
     isLoading,

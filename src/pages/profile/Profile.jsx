@@ -17,12 +17,6 @@ import { useUpdateUserMutation } from '../../slices/userApiSlice';
 import { setCredential } from '../../slices/authSlice';
 
 const Profile = () => {
-  const focusName = useRef(null);
-  const focusEmail = useRef(null);
-  const focusPhone = useRef(null);
-  const focusAdress = useRef(null);
-  const focusZip = useRef(null);
-  const focusCountry = useRef(null);
   const { userInfo } = useSelector((state) => state.auth);
   const [name, setName] = useState(userInfo?.username);
   const [email, setEmail] = useState(userInfo?.email);
@@ -36,14 +30,7 @@ const Profile = () => {
   const handleEdit = (change) => {
     setEdit(change);
   };
-  useEffect(() => {
-    edit === 'username' && focusName.current.focus();
-    edit === 'email' && focusEmail.current.focus();
-    edit === 'phone' && focusPhone.current.focus();
-    edit === 'address' && focusAdress.current.focus();
-    edit === 'zip' && focusZip.current.focus();
-    edit === 'country' && focusCountry.current.focus();
-  }, [edit]);
+
   const { data, isLoading, error } = useGetOrdersQuery();
   const [updateUser, { isLoading: updateLoading }] = useUpdateUserMutation();
   const dispatch = useDispatch();
@@ -114,11 +101,11 @@ const Profile = () => {
                     <div className='profile-text-field'>
                       <p className='text-child'>Name</p>
                       <input
+                        id='name'
                         type='text'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         disabled={edit !== 'username'}
-                        ref={focusName}
                         required
                       />
                     </div>
@@ -127,11 +114,14 @@ const Profile = () => {
                     </p>
                   </div>
                   <div className='profile-edit'>
-                    <FontAwesomeIcon
-                      icon={faPenToSquare}
-                      className='edit-icon'
-                      onClick={() => handleEdit('username')}
-                    />
+                    <label htmlFor='name'>
+                      <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        className='edit-icon'
+                        onClick={() => handleEdit('username')}
+                      />
+                    </label>
+
                     <button type='submit'>Change</button>
                   </div>
                 </form>
@@ -143,12 +133,12 @@ const Profile = () => {
                     <div className='profile-text-field'>
                       <p className='text-child'>Email</p>
                       <input
+                        id='email'
                         required
                         type='email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         disabled={edit !== 'email'}
-                        ref={focusEmail}
                       />
                     </div>
                     <p>
@@ -157,11 +147,13 @@ const Profile = () => {
                     </p>
                   </div>
                   <div className='profile-edit'>
-                    <FontAwesomeIcon
-                      icon={faPenToSquare}
-                      className='edit-icon'
-                      onClick={() => handleEdit('email')}
-                    />
+                    <label htmlFor='email'>
+                      <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        className='edit-icon'
+                        onClick={() => handleEdit('email')}
+                      />
+                    </label>
                     <button type='submit'>Change</button>
                   </div>
                 </form>
@@ -173,12 +165,12 @@ const Profile = () => {
                     <div className='profile-text-field'>
                       <p className='text-child'>Phone number</p>
                       <input
+                        id='phone'
                         required
                         type='number'
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         disabled={edit !== 'phone'}
-                        ref={focusPhone}
                       />
                     </div>
                     <p>
@@ -187,11 +179,13 @@ const Profile = () => {
                     </p>
                   </div>
                   <div className='profile-edit'>
-                    <FontAwesomeIcon
-                      icon={faPenToSquare}
-                      className='edit-icon'
-                      onClick={() => handleEdit('phone')}
-                    />
+                    <label htmlFor='phone'>
+                      <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        className='edit-icon'
+                        onClick={() => handleEdit('phone')}
+                      />
+                    </label>
                     <button type='submit'>Change</button>
                   </div>
                 </form>
@@ -203,22 +197,24 @@ const Profile = () => {
                     <div className='profile-text-field'>
                       <p className='text-child'>Address</p>
                       <input
+                        id='address'
                         type='text'
                         value={address}
                         placeholder='Enter your address'
                         onChange={(e) => setAddress(e.target.value)}
                         disabled={edit !== 'address'}
-                        ref={focusAdress}
                       />
                     </div>
                     <p>Add your address</p>
                   </div>
                   <div className='profile-edit'>
-                    <FontAwesomeIcon
-                      icon={faPenToSquare}
-                      className='edit-icon'
-                      onClick={() => handleEdit('address')}
-                    />
+                    <label htmlFor='address'>
+                      <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        className='edit-icon'
+                        onClick={() => handleEdit('address')}
+                      />
+                    </label>
                     <button type='submit'>Change</button>
                   </div>
                 </form>
@@ -230,22 +226,24 @@ const Profile = () => {
                     <div className='profile-text-field'>
                       <p className='text-child'>Zip</p>
                       <input
+                        id='zip'
                         type='text'
                         value={zip}
                         placeholder='Enter your zip/post'
                         onChange={(e) => setZip(e.target.value)}
                         disabled={edit !== 'zip'}
-                        ref={focusZip}
                       />
                     </div>
                     <p>Add your Zip/Post code</p>
                   </div>
                   <div className='profile-edit'>
-                    <FontAwesomeIcon
-                      icon={faPenToSquare}
-                      className='edit-icon'
-                      onClick={() => handleEdit('zip')}
-                    />
+                    <label htmlFor='zip'>
+                      <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        className='edit-icon'
+                        onClick={() => handleEdit('zip')}
+                      />
+                    </label>
                     <button type='submit'>Change</button>
                   </div>
                 </form>
@@ -257,22 +255,24 @@ const Profile = () => {
                     <div className='profile-text-field'>
                       <p className='text-child'>Country</p>
                       <input
+                        id='country'
                         type='text'
                         value={country}
                         placeholder='Enter your Country'
                         onChange={(e) => setCountry(e.target.value)}
                         disabled={edit !== 'country'}
-                        ref={focusCountry}
                       />
                     </div>
                     <p>Add your country</p>
                   </div>
                   <div className='profile-edit'>
-                    <FontAwesomeIcon
-                      icon={faPenToSquare}
-                      className='edit-icon'
-                      onClick={() => handleEdit('country')}
-                    />
+                    <label htmlFor='country'>
+                      <FontAwesomeIcon
+                        icon={faPenToSquare}
+                        className='edit-icon'
+                        onClick={() => handleEdit('country')}
+                      />
+                    </label>
                     <button type='submit'>Change</button>
                   </div>
                 </form>

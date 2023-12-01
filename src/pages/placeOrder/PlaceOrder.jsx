@@ -156,7 +156,7 @@ const PlaceOrder = () => {
             <div className='order-total'>
               <h2>Total:</h2>
               <div className='order-total-price'>
-                <h2>${order.totalPrice}</h2>
+                <p className='total-price'>${order.totalPrice}</p>
                 <p>Includes taxes and charges In property currency: € 110</p>
               </div>
             </div>
@@ -218,6 +218,7 @@ const PlaceOrder = () => {
             <div className='order-name'>
               <h5>Address</h5>
               <input
+                required
                 type='text'
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
@@ -226,6 +227,7 @@ const PlaceOrder = () => {
             <div className='order-name'>
               <h5>Zip/Post Code</h5>
               <input
+                required
                 type='number'
                 value={zip}
                 onChange={(e) => setZip(e.target.value)}
@@ -234,6 +236,7 @@ const PlaceOrder = () => {
             <div className='order-name'>
               <h5>Country/region</h5>
               <input
+                required
                 type='text'
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}

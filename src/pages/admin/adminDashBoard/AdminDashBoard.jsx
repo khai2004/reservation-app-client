@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './adminDashBoard.scss';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import AdminSidebar from '../../../component/admin/adminSidebar/AdminSidebar';
 import Navbar from '../../../component/navbar/Navbar';
 import {
@@ -12,7 +12,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const AdminDashBoard = () => {
-  const [select, setSelect] = useState('account');
+  const [select, setSelect] = useState('Home');
   const adminButton = [
     {
       link: '/adminmanagement/home',
@@ -41,6 +41,10 @@ const AdminDashBoard = () => {
     },
   ];
 
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate('/adminmanagement/home');
+  }, []);
   return (
     <div className='admin-component'>
       <div className='admin-component-box'>
@@ -48,7 +52,7 @@ const AdminDashBoard = () => {
         <div className='navbar'>
           <Navbar />
         </div>
-        <h1>{select}</h1>
+        <h1 className='admin-title'>{select}</h1>
         <div className='outlet'>
           <Outlet />
         </div>
