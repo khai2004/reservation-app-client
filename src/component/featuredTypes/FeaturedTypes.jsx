@@ -50,7 +50,7 @@ const FeaturedTypes = () => {
             src='https://images.pexels.com/photos/1493202/pexels-photo-1493202.jpeg?auto=compress&cs=tinysrgb&w=600'
             alt=''
           />
-          <h3>Villas</h3>
+          <h3>Cabins</h3>
         </div>
       </div>
     </div>

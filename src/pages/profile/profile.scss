@@ -6,6 +6,7 @@
   .profile {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 3rem;
     padding: 1.6rem;
     width: 102.4rem;
@@ -18,16 +19,35 @@
         rgb(255, 164, 100)
       );
       height: 20vh;
-      margin-right: 1.6rem;
       position: relative;
       display: flex;
       justify-content: center;
       .profile__info {
         position: absolute;
-        bottom: -10rem;
+        bottom: -5rem;
+        height: 10rem;
+        width: 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .admin-nav-element {
+          color: black;
+          padding: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          cursor: pointer;
+          background-color: blue;
+          color: white;
+          width: 18rem;
+          border-radius: 1rem;
+          &:hover {
+            background-color: rgb(0, 0, 161);
+          }
+        }
         .profile__image {
-          height: 10rem;
-          width: 10rem;
+          height: 100%;
+          width: 100%;
           border-radius: 50%;
         }
         .profile__username {
@@ -40,7 +60,7 @@
     }
 
     .profile-header {
-      margin-top: 10rem;
+      margin-top: 14rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -50,6 +70,9 @@
       cursor: pointer;
       width: 100%;
       border: 0.1rem solid #eee;
+      hr {
+        height: 4rem;
+      }
       .profile-nav {
         flex: 1;
         display: flex;
@@ -78,8 +101,8 @@
     .profil-body {
       box-shadow: 0 0 0.5rem 0.2rem rgb(248, 248, 248);
       border-radius: 1.5rem;
-      padding: 2rem;
       border: 0.1rem solid #eee;
+      width: 100%;
 
       .profile-info {
         display: flex;
@@ -157,9 +180,9 @@
         gap: 1rem;
         height: 70vh;
         width: 100%;
+        margin-top: 1rem;
         .no-booking {
           height: 70%;
-          padding: 2rem;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -216,11 +239,13 @@
               justify-content: space-between;
               align-items: center;
               p {
+                font-size: 1.4rem;
                 display: flex;
                 gap: 0.5rem;
               }
               h5 {
-                width: 50%;
+                font-size: 1.4rem;
+                width: 60%;
               }
             }
           }
@@ -245,39 +270,243 @@
             }
           }
 
-          .check-detail-confirm {
-            width: 10%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            margin-right: 0.5rem;
-            border-radius: 1.5rem;
-            font-weight: 700;
-            font-size: 1.4rem;
-          }
-          .check-detail-confirm-confirm {
-            background-color: greenyellow;
-            color: green;
-          }
-          .check-detail-confirm-uncomfirmed {
-            background-color: rgb(194, 221, 255);
-            color: blue;
-          }
-          .check-detail {
-            display: flex;
-            padding: 1rem;
-            font-size: 1.4rem;
-            background-color: aqua;
-            border-radius: 0.5rem;
-            border: none;
-            align-items: center;
-            padding-left: 1rem;
+          .order-detail-his {
+            width: 15%;
 
-            gap: 0.5rem;
-            cursor: pointer;
-            .next {
-              font-size: 1.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            .check-detail-confirm {
+              width: 80%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 0.5rem;
+              margin-right: 0.5rem;
+              border-radius: 0.5rem;
+
+              font-weight: 700;
+              font-size: 1.4rem;
+            }
+            .check-detail-confirm-confirm {
+              background-color: greenyellow;
+              color: green;
+            }
+            .check-detail-confirm-uncomfirmed {
+              background-color: rgb(194, 221, 255);
+              color: blue;
+            }
+            .check-detail {
+              width: 80%;
+              display: flex;
+              padding: 0.5rem;
+              font-size: 1.4rem;
+              background-color: aqua;
+              border-radius: 0.5rem;
+              border: none;
+              justify-content: center;
+              align-items: center;
+
+              gap: 0.5rem;
+              cursor: pointer;
+              .next {
+                font-size: 1.6rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .profile-box {
+    width: 100%;
+    .profile {
+      width: 100%;
+      padding: 0rem;
+      .profile-bia {
+        .profile__info {
+          position: absolute;
+          bottom: -2.5rem;
+          height: 5rem;
+          width: 5rem;
+        }
+      }
+
+      .profile-header {
+        align-items: center;
+        width: 95%;
+        padding: 0;
+
+        .profile-nav {
+          width: 50%;
+
+          h5 {
+            overflow: hidden;
+            width: 100%;
+            padding: 0.5rem 1rem;
+          }
+          .check {
+            width: 10rem;
+            margin-left: 1rem;
+          }
+        }
+      }
+      .profil-body {
+        width: 95%;
+        padding: 0rem;
+        .profile-info {
+          width: 100%;
+          overflow: hidden;
+          .profile-name {
+            width: 100%;
+            align-items: start;
+            gap: 3rem;
+            justify-content: start;
+
+            .profile-text {
+              width: 60%;
+              p {
+                display: none;
+              }
+              .profile-text-field {
+                flex-direction: column;
+                align-items: start;
+                width: 100%;
+
+                p {
+                  display: block;
+                  width: 25%;
+                  font-size: 1.8rem;
+                }
+              }
+            }
+            .profile-edit {
+              flex-direction: column;
+
+              gap: 1rem;
+              align-items: end;
+              .edit-icon {
+                font-size: 1.8rem;
+                cursor: pointer;
+              }
+              button {
+                font-size: 1.2rem;
+              }
+            }
+          }
+        }
+        .header-history {
+          height: 100%;
+          width: 100%;
+          .no-booking {
+            display: none;
+          }
+          .order-list {
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: start;
+            border-radius: 1rem;
+            .order-element {
+            }
+            .hotel-title {
+              width: 100%;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              gap: 2rem;
+              padding-left: 0rem;
+              border: none;
+              p {
+                font-size: 1.6rem;
+              }
+            }
+            .check-date {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              gap: 2rem;
+              padding-left: 0rem;
+              border: none;
+              .check-in {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                p {
+                  display: flex;
+                  gap: 0.5rem;
+                }
+                h5 {
+                  width: 50%;
+                }
+              }
+            }
+            .check-room {
+              width: 100%;
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              padding-left: 0rem;
+              border: none;
+
+              .room-no {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+                .list-room-no {
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 0.3rem;
+                }
+              }
+            }
+
+            .order-detail-his {
+              width: 100%;
+              flex-direction: row;
+              gap: 1rem;
+              .check-detail-confirm {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.5rem;
+                margin-right: 0.5rem;
+                border-radius: 0.5rem;
+
+                font-weight: 700;
+                font-size: 1.4rem;
+              }
+              .check-detail-confirm-confirm {
+                background-color: greenyellow;
+                color: green;
+              }
+              .check-detail-confirm-uncomfirmed {
+                background-color: rgb(194, 221, 255);
+                color: blue;
+              }
+              .check-detail {
+                width: 50%;
+                display: flex;
+                padding: 0.5rem;
+                font-size: 1.4rem;
+                background-color: aqua;
+                border-radius: 0.5rem;
+                border: none;
+                justify-content: center;
+                align-items: center;
+
+                gap: 0.5rem;
+                cursor: pointer;
+                .next {
+                  font-size: 1.6rem;
+                }
+              }
             }
           }
         }

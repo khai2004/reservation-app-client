@@ -8,7 +8,6 @@ const SingleHotel = ({ hotel }) => {
   const handleClick = (id) => {
     navigate(`/hotels/${id}`);
   };
-  console.log(hotel);
   return (
     <div className='searchItem' onClick={() => handleClick(hotel?._id)}>
       <img src={hotel.photo[0].url} alt={hotel.title} className='siImg' />

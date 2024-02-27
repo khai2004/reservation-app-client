@@ -18,3 +18,19 @@
     font-size: 2.4rem;
   }
 }
+@media only screen and (max-width: 650px) {
+  .homeContainer {
+    margin-top: 3rem;
+    padding: 0rem;
+    width: 100%;
+    gap: 3rem;
+    .textHome {
+      width: 90%;
+    }
+
+    .homeTiltles {
+      width: 90%;
+      font-size: 2.4rem;
+    }
+  }
+}

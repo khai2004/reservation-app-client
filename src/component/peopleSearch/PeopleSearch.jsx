@@ -36,16 +36,16 @@ const PeopleSearch = () => {
   return (
     <div className='people-component'>
       <div className='people' onClick={handlePeople}>
-        <FontAwesomeIcon icon={faPerson} />
+        <FontAwesomeIcon icon={faPerson} style={{ fontSize: '2rem' }} />
         <div className='setPeople'>
           <p>
-            <span>{adults}</span> {adults > 1 ? 'adults' : 'adult'}
+            <span>{adults}</span> {adults > 1 ? 'Adults' : 'Adult'}
           </p>
           <p>
-            <span>{childrens}</span> {childrens > 1 ? 'childrens' : 'children'}
+            <span>{childrens}</span> {childrens > 1 ? 'Childrens' : 'Children'}
           </p>
           <p>
-            <span>{rooms}</span> {rooms > 1 ? 'rooms' : 'room'}
+            <span>{rooms}</span> {rooms > 1 ? 'Rooms' : 'Room'}
           </p>
         </div>
       </div>
@@ -54,7 +54,7 @@ const PeopleSearch = () => {
         <div className='options'>
           <div className='options__option'>
             <div className='options__element'>
-              <p options__label>{adults > 1 ? 'adults' : 'adult'}</p>
+              <p options__label>{adults > 1 ? 'Adults' : 'Adult'}</p>
               <div className='options__counter'>
                 <span
                   className={`options__operator ${
@@ -74,7 +74,7 @@ const PeopleSearch = () => {
               </div>
             </div>
             <div className='options__element'>
-              <p options__label>{childrens > 1 ? 'childrens' : 'children'}</p>
+              <p options__label>{childrens > 1 ? 'Childrens' : 'Children'}</p>
               <div className='options__counter'>
                 <span
                   className={`options__operator ${
@@ -96,7 +96,7 @@ const PeopleSearch = () => {
               </div>
             </div>
             <div className='options__element'>
-              <p options__label>{rooms > 1 ? 'rooms' : 'room'}</p>
+              <p options__label>{rooms > 1 ? 'Rooms' : 'Room'}</p>
               <div className='options__counter'>
                 <span
                   className={`options__operator ${

@@ -49,28 +49,31 @@ const MyOrder = () => {
     }
   };
   return (
-    <div className='orderplace'>
-      <div>
-        {userInfo?.isAdmin && (
-          <div style={{ display: 'flex', justifyContent: 'end' }}>
-            {' '}
-            <button className='confirm' onClick={handleUpdate}>
+    <div className='my-orderplace'>
+      {userInfo?.isAdmin && (
+        <div className='btn-box'>
+          <div className='btn-confirm'>
+            <button className='my-confirm' onClick={handleUpdate}>
               {order?.confirm ? 'Unconfirm' : 'Confirm'}
             </button>
           </div>
-        )}
-        <div className='order-box'>
-          <div className='order-hotel-info'>
-            <div className='order-hotel-list'>
+        </div>
+      )}{' '}
+      <div className='my-order-container'>
+        <div className='my-order-box'>
+          <div className='my-order-hotel-info'>
+            <div className='my-order-hotel-list'>
               <h3>{order?.hotel.title}</h3>
-              <p className='hotel-title'>{order?.hotel.address}</p>
+              <p className='my-hotel-title'>{order?.hotel.address}</p>
             </div>
-            <div className='order-hotel-list'>
-              <h3 className='order-hotel-list-title'>Your booking details</h3>
-              <div className='order-check-date'>
-                <div className='order-checkin'>
+            <div className='my-order-hotel-list'>
+              <h3 className='my-order-hotel-list-title'>
+                Your booking details
+              </h3>
+              <div className='my-order-check-date'>
+                <div className='my-order-checkin'>
                   <p>Check-in</p>
-                  <h4 className='order-date'>
+                  <h4 className='my-order-date'>
                     {new Date(order?.dateNumber[0]).toLocaleDateString(
                       undefined,
                       {
@@ -83,9 +86,9 @@ const MyOrder = () => {
                   </h4>
                 </div>
                 <hr />
-                <div className='order-checkin'>
+                <div className='my-order-checkin'>
                   <p>Checkout</p>
-                  <h4 className='order-date'>
+                  <h4 className='my-order-date'>
                     {new Date(
                       order?.dateNumber[order?.dateNumber?.length - 1]
                     ).toLocaleDateString(undefined, {
@@ -97,7 +100,7 @@ const MyOrder = () => {
                   </h4>
                 </div>
               </div>
-              <div className='order-room-total'>
+              <div className='my-order-room-total'>
                 <p>Total length of stay:</p>
                 <h4>
                   {order?.dateNumber?.length}{' '}
@@ -105,16 +108,16 @@ const MyOrder = () => {
                 </h4>
               </div>
               <hr />
-              <div className='order-room'>
+              <div className='my-order-room'>
                 <h3>You selected</h3>
-                <div className='room-title'>
+                <div className='my-room-title'>
                   <h4>
                     {order?.roomReserve?.length}{' '}
                     {order?.roomReserve?.length > 1 ? 'rooms' : 'room'}:
                   </h4>
                 </div>
 
-                <div className='room-detail'>
+                <div className='my-room-detail'>
                   {order?.roomDetail?.map((room, index) => (
                     <p
                       style={{ fontSize: '14px', fontWeight: '700' }}
@@ -124,30 +127,30 @@ const MyOrder = () => {
                     </p>
                   ))}
                 </div>
-                <div className='room-number'>
+                <div className='my-room-number'>
                   <p>Room number: </p>
                   {order?.roomReserve?.map((number, index) => (
                     <h4 key={index}> {number.roomNumber}</h4>
                   ))}
                 </div>
 
-                <div className='room-people'>
+                <div className='my-room-people'>
                   <p>Total Room Price:</p>
                   <h4>${order?.roomsPrice}</h4>
                 </div>
               </div>
             </div>
 
-            <div className='order-hotel-price'>
+            <div className='my-order-hotel-price'>
               <h3>Your price summary</h3>
-              <div className='order-total'>
+              <div className='my-order-total'>
                 <h2>Total:</h2>
-                <div className='order-total-price'>
+                <div className='my-order-total-price'>
                   <h2>${order?.totalPrice}</h2>
                   <p>Includes taxes and charges In property currency: € 110</p>
                 </div>
               </div>
-              <div className='tax'>
+              <div className='my-tax'>
                 <h4>Price information</h4>
                 <p>
                   <span>
@@ -158,10 +161,10 @@ const MyOrder = () => {
                 </p>
               </div>
             </div>
-            <div className='order-hotel-cancled'>
+            <div className='my-order-hotel-cancled'>
               <h3>How much will it cost to cancel?</h3>
 
-              <div className='order-hotel-cancled-date'>
+              <div className='my-order-hotel-cancled-date'>
                 <p style={{ color: 'green' }}>
                   Free cancellation before{' '}
                   {new Date(order?.dateNumber[0] - 86400000).toLocaleDateString(
@@ -179,52 +182,52 @@ const MyOrder = () => {
               </div>
             </div>
           </div>
-          <div className='order-info'>
-            <div className='order-user-info'>
+          <div className='my-order-info'>
+            <div className='my-order-user-info'>
               <h2>Here is details of your order</h2>
-              <div className='order-name'>
-                <div className='order-user-info-title'>Username</div>
-                <div className='order-desc'>{order?.user?.username}</div>
+              <div className='my-order-name'>
+                <div className='my-order-user-info-title'>Username</div>
+                <div className='my-order-desc'>{order?.user?.username}</div>
               </div>
               <hr />
-              <div className='order-name'>
-                <div className='order-user-info-title'>Email address</div>
-                <div className='order-desc'>{order?.user.email}</div>
+              <div className='my-order-name'>
+                <div className='my-order-user-info-title'>Email address</div>
+                <div className='my-order-desc'>{order?.user.email}</div>
               </div>
               <hr />
               <h3>Your address</h3>
 
-              <div className='order-name'>
-                <div className='order-user-info-title'> Address</div>
-                <div className='order-desc'>{order?.user.address}</div>
+              <div className='my-order-name'>
+                <div className='my-order-user-info-title'> Address</div>
+                <div className='my-order-desc'>{order?.user.address}</div>
               </div>
               <hr />
 
-              <div className='order-name'>
-                <div className='order-user-info-title'> Zip/Post Code</div>
-                <div className='order-desc'>{order?.user.zip}</div>
+              <div className='my-order-name'>
+                <div className='my-order-user-info-title'> Zip/Post Code</div>
+                <div className='my-order-desc'>{order?.user.zip}</div>
               </div>
               <hr />
 
-              <div className='order-name'>
-                <div className='order-user-info-title'> Country/region</div>
-                <div className='order-desc'>{order?.user.country}</div>
+              <div className='my-order-name'>
+                <div className='my-order-user-info-title'> Country/region</div>
+                <div className='my-order-desc'>{order?.user.country}</div>
               </div>
               <hr />
 
-              <div className='order-name'>
-                <div className='order-user-info-title'>
+              <div className='my-order-name'>
+                <div className='my-order-user-info-title'>
                   {' '}
                   Telephone (mobile number preferred)
                 </div>
-                <div className='order-desc'>{order?.user.phone}</div>
+                <div className='my-order-desc'>{order?.user.phone}</div>
               </div>
               <hr />
             </div>
-            <div className='order-user-info'>
+            <div className='my-order-user-info'>
               <h2>Good to know:</h2>
 
-              <p className='good-to-know'>
+              <p className='my-good-to-know'>
                 <span>
                   <FontAwesomeIcon
                     icon={faCircleCheck}
@@ -235,7 +238,7 @@ const MyOrder = () => {
                 so lock in this great price today.
               </p>
             </div>
-            <div className='order-user-info'>
+            <div className='my-order-user-info'>
               <h2>Your special requests</h2>
               <p>
                 Special requests cannot be guaranteed – but the property will do
@@ -249,8 +252,8 @@ const MyOrder = () => {
                   : 'You did not request anything!'}
               </p>
             </div>
-            <div className='order-button-sumit'>
-              <div className='order-button-sumit-cancle'>
+            <div className='my-order-button-sumit'>
+              <div className='my-order-button-sumit-cancle'>
                 If you want to change somthing, feel free to cancle and try to
                 reserve new ones.
               </div>

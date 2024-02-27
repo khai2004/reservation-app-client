@@ -55,16 +55,16 @@ const RoomDate = () => {
   return (
     <div className='room-date-bar'>
       <div className='date' onClick={handleDate}>
-        <FontAwesomeIcon icon={faCalendarDays} />
+        <FontAwesomeIcon icon={faCalendarDays} style={{ fontSize: '2rem' }} />
         <div className='setDate'>
-          <div>
+          <div className='start-date'>
             {' '}
             {state[0]?.endDate === null
               ? 'Check-in date'
               : state[0]?.startDate?.toDateString()}
           </div>
-          <div>—</div>
-          <div>
+          <div lassName='start-date'>—</div>
+          <div className='start-date'>
             {state[0]?.endDate === null
               ? 'Check-out date'
               : state[0]?.endDate?.toDateString()}

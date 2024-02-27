@@ -43,15 +43,6 @@ const Navbar = ({ login }) => {
           ) : (
             <div>
               <div className='user'>
-                {userInfo.isAdmin && (
-                  <div
-                    className='admin-nav-element'
-                    onClick={() => navigate('/adminmanagement')}
-                  >
-                    <FontAwesomeIcon icon={faSuitcase} />
-                    <p>Admin management</p>
-                  </div>
-                )}
                 <div className='user-nav' onClick={() => navigate('/profile')}>
                   <img
                     src={

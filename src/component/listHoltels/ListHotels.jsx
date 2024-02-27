@@ -59,7 +59,7 @@ const ListHotels = () => {
                 <span>
                   {city ? `${city}:` : ''} {data?.hotels.length}{' '}
                 </span>
-                properties found
+                Properties found
               </h2>
               <div
                 className='choose'

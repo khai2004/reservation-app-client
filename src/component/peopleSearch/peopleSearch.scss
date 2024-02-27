@@ -38,6 +38,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        p {
+          font-size: 1.6rem;
+          font-weight: 600;
+        }
         .options__counter {
           border: 0.1rem solid rgb(87, 87, 255);
           border-radius: 0.5rem;
@@ -55,6 +59,50 @@
           }
           .disabled {
             cursor: not-allowed;
+          }
+        }
+      }
+    }
+    .options__button {
+      background-color: blue;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: white;
+      border: none;
+      border-radius: inherit;
+      cursor: pointer;
+      padding: 0.8rem 0rem;
+      &:hover {
+        background-color: rgb(0, 0, 211);
+      }
+    }
+  }
+}
+@media only screen and (max-width: 650px) {
+  .people-component {
+    width: 100%;
+    .people {
+      gap: 3rem;
+
+      .setPeople {
+        gap: 2rem;
+        p {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .options {
+      .options__option {
+        .options__element {
+          .options__counter {
+            border: 0.1rem solid rgb(87, 87, 255);
+            border-radius: 0.5rem;
+            width: 10rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
           }
         }
       }

@@ -1,191 +1,229 @@
-.orderplace {
-  display: flex;
-  justify-content: center;
+.my-orderplace {
   margin-top: 4rem;
-  .confirm {
+  .btn-box {
+    width: 100%;
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 1rem;
-    background-color: blue;
-    color: white;
-    font-size: 1.4rem;
-    font-weight: bold;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    &:hover {
-      background-color: rgb(2, 2, 216);
+    justify-content: center;
+    .btn-confirm {
+      width: 102.4rem;
+      display: flex;
+      justify-content: end;
+      .my-confirm {
+        margin-bottom: 1rem;
+        background-color: blue;
+        color: white;
+        font-size: 1.4rem;
+        font-weight: bold;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        &:hover {
+          background-color: rgb(2, 2, 216);
+        }
+      }
     }
   }
-  .order-box {
-    width: 102.4rem;
+  .my-order-container {
     display: flex;
-    gap: 2rem;
-
-    .order-hotel-info {
-      width: 40%;
+    justify-content: center;
+    .my-order-box {
+      width: 102.4rem;
       display: flex;
-      flex-direction: column;
       gap: 2rem;
-      p {
-        font-size: 1.4rem;
-        font-weight: 600;
-      }
-      .order-hotel-list {
-        padding: 2rem;
-        border: 0.1rem solid rgb(193, 193, 193);
-        border-radius: 1rem;
 
-        .hotel-title {
-          margin-top: 1rem;
+      .my-order-hotel-info {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        p {
           font-size: 1.4rem;
+          font-weight: 600;
         }
-        .order-hotel-list-title {
-          font-size: 2rem;
-          margin-bottom: 2.5rem;
-        }
-        .order-check-date {
-          display: flex;
-          gap: 1.5rem;
+        .my-order-hotel-list {
+          padding: 2rem;
+          border: 0.1rem solid rgb(193, 193, 193);
+          border-radius: 1rem;
 
-          .order-checkin {
-            .order-date {
-              font-size: 1.6rem;
+          .hotel-title {
+            margin-top: 1rem;
+            font-size: 1.4rem;
+          }
+          .my-order-hotel-list-title {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+          }
+          .my-order-check-date {
+            display: flex;
+            gap: 1.5rem;
+
+            .my-order-checkin {
+              .my-order-date {
+                font-size: 1.6rem;
+              }
             }
           }
-        }
-        .order-room-total {
-          margin-top: 1.5rem;
-          margin-bottom: 1.5rem;
-          display: flex;
-          gap: 1.5rem;
-        }
-        .order-room {
-          margin-top: 1.5rem;
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-          .room-title {
-            margin-top: 0.5rem;
+          .my-order-room-total {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
           }
-          .room-detail {
+          .my-order-room {
+            margin-top: 1.5rem;
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-            margin-bottom: 0.5rem;
-          }
-          .room-number {
-            display: flex;
-            gap: 1rem;
-          }
-        }
-      }
-      .order-hotel-price {
-        border: 0.1rem solid rgb(193, 193, 193);
-        border-radius: 1rem;
-        overflow: hidden;
-        h3 {
-          padding: 2rem;
-        }
-        .order-total {
-          padding: 2rem;
-          display: flex;
-          justify-content: space-between;
-          background-color: rgb(168, 229, 255);
-          .order-total-price {
-            width: 60%;
-            p {
-              font-size: 1.4rem;
+            .my-room-title {
+              margin-top: 0.5rem;
+            }
+            .my-room-detail {
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+              margin-bottom: 0.5rem;
+            }
+            .my-room-number {
+              display: flex;
+              gap: 1rem;
             }
           }
         }
-        .tax {
+        .my-order-hotel-price {
+          border: 0.1rem solid rgb(193, 193, 193);
+          border-radius: 1rem;
+          overflow: hidden;
+          h3 {
+            padding: 2rem;
+          }
+          .my-order-total {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(168, 229, 255);
+            .my-order-total-price {
+              width: 60%;
+              p {
+                font-size: 1.4rem;
+              }
+            }
+          }
+          .my-tax {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            h4 {
+              padding: 0;
+            }
+            p {
+              font-size: 1.4rem;
+              display: flex;
+              gap: 1rem;
+            }
+          }
+        }
+        .my-order-hotel-cancled {
           padding: 2rem;
+          border: 0.1rem solid rgb(193, 193, 193);
+
+          border-radius: 1rem;
           display: flex;
           flex-direction: column;
           gap: 1rem;
 
-          h4 {
-            padding: 0;
-          }
           p {
             font-size: 1.4rem;
+          }
+          .my-order-hotel-cancled-date {
             display: flex;
-            gap: 1rem;
+            justify-content: space-between;
+            gap: 5rem;
           }
         }
       }
-      .order-hotel-cancled {
-        padding: 2rem;
-        border: 0.1rem solid rgb(193, 193, 193);
+      .my-order-info {
+        max-width: 60%;
+        height: max-content;
+        margin-bottom: 20rem;
 
-        border-radius: 1rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-
-        p {
-          font-size: 1.4rem;
-        }
-        .order-hotel-cancled-date {
+        .my-order-user-info {
+          padding: 2rem;
           display: flex;
-          justify-content: space-between;
-          gap: 5rem;
+          flex-direction: column;
+          gap: 1.5rem;
+          border: 0.1rem solid rgb(193, 193, 193);
+          border-radius: 1rem;
+          margin-bottom: 2rem;
+
+          .my-good-to-know {
+            display: flex;
+            gap: 0.5rem;
+          }
+          .my-order-name {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            .my-order-user-info-title {
+              font-size: 1.8rem;
+            }
+            .my-order-desc {
+              font-size: 1.6rem;
+              font-weight: 600;
+            }
+          }
+        }
+        .my-order-button-sumit {
+          display: flex;
+          justify-content: end;
+          gap: 2rem;
+          .my-order-button-sumit-cancle {
+            color: green;
+            font-size: 1.6rem;
+          }
+          button {
+            padding: 1rem 2rem 1rem 2rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background-color: rgb(245, 37, 37);
+            border: none;
+            border-radius: 1rem;
+            color: white;
+            cursor: pointer;
+            &:hover {
+              background-color: rgb(254, 0, 0);
+            }
+          }
         }
       }
     }
-    .order-info {
-      max-width: 60%;
-      height: max-content;
-      margin-bottom: 20rem;
+  }
+}
 
-      .order-user-info {
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        border: 0.1rem solid rgb(193, 193, 193);
-        border-radius: 1rem;
-        margin-bottom: 2rem;
-
-        .good-to-know {
-          display: flex;
-          gap: 0.5rem;
-        }
-        .order-name {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-          .order-user-info-title {
-            font-size: 1.8rem;
-          }
-          .order-desc {
-            font-size: 1.6rem;
-            font-weight: 600;
-          }
-        }
+@media only screen and (max-width: 650px) {
+  .my-orderplace {
+    width: 100%;
+    justify-content: center;
+    .btn-box {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      .btn-confirm {
+        width: 90%;
       }
-      .order-button-sumit {
-        display: flex;
-        justify-content: end;
-        gap: 2rem;
-        .order-button-sumit-cancle {
-          color: green;
-          font-size: 1.6rem;
+    }
+    .my-order-container {
+      .my-order-box {
+        width: 90%;
+        flex-direction: column;
+
+        .my-order-hotel-info {
+          width: 100%;
         }
-        button {
-          padding: 1rem 2rem 1rem 2rem;
-          font-size: 1.8rem;
-          font-weight: 700;
-          background-color: rgb(245, 37, 37);
-          border: none;
-          border-radius: 1rem;
-          color: white;
-          cursor: pointer;
-          &:hover {
-            background-color: rgb(254, 0, 0);
-          }
+        .my-order-info {
+          max-width: 100%;
         }
       }
     }

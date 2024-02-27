@@ -29,3 +29,37 @@
     }
   }
 }
+@media only screen and (max-width: 650px) {
+  .fBox {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: center;
+
+    background-color: rgb(227, 236, 238);
+    .footer {
+      padding: 1rem;
+      width: 100%;
+      width: 102.4rem;
+
+      .fLists {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        .fList {
+          list-style: none;
+          padding: 0;
+          .fListItem {
+            margin-bottom: 1rem;
+            color: #003580;
+            font-size: 1rem;
+            cursor: pointer;
+            &:hover {
+              color: rgb(247, 138, 22);
+            }
+          }
+        }
+      }
+    }
+  }
+}

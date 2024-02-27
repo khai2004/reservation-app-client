@@ -88,3 +88,10 @@
     }
   }
 }
+
+@media only screen and (max-width: 650px) {
+  .manage-user-box {
+    color: grey;
+    width: 90rem;
+  }
+}

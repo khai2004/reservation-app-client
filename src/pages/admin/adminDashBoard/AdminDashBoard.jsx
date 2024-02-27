@@ -26,12 +26,12 @@ const AdminDashBoard = () => {
     },
     {
       link: '/adminmanagement/hotellist',
-      name: 'Hotel',
+      name: 'Hotels',
       icon: <FontAwesomeIcon icon={faHotel} />,
     },
     {
       link: '/adminmanagement/hotelcreate',
-      name: 'Create hotel',
+      name: 'Hotel',
       icon: <FontAwesomeIcon icon={faPlus} />,
     },
     {
@@ -48,7 +48,11 @@ const AdminDashBoard = () => {
   return (
     <div className='admin-component'>
       <div className='admin-component-box'>
-        <AdminSidebar setSelect={setSelect} adminButton={adminButton} />
+        <AdminSidebar
+          setSelect={setSelect}
+          select={select}
+          adminButton={adminButton}
+        />
         <div className='navbar'>
           <Navbar />
         </div>

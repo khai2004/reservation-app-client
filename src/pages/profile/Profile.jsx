@@ -6,10 +6,11 @@ import {
   faChevronRight,
   faCircleInfo,
   faPenToSquare,
+  faSuitcase,
 } from '@fortawesome/free-solid-svg-icons';
 import './profile.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useGetOrdersQuery } from '../../slices/orderApiSlice';
 import FeaturedPopular from '../../component/featuredPopular/FeaturedPopular';
 import FeaturedTypes from '../../component/featuredTypes/FeaturedTypes';
@@ -52,7 +53,7 @@ const Profile = () => {
     }
   };
   console.log(data);
-
+  const navigate = useNavigate();
   return (
     <div className='profile-box'>
       <div className='profile'>
@@ -68,6 +69,15 @@ const Profile = () => {
             />
             <h2 className='profile__username'>{userInfo?.username}</h2>
             <p className='profile__email'>{userInfo?.email}</p>
+            {userInfo.isAdmin && (
+              <div
+                className='admin-nav-element'
+                onClick={() => navigate('/adminmanagement')}
+              >
+                <FontAwesomeIcon icon={faSuitcase} />
+                <p>Admin management</p>
+              </div>
+            )}
           </div>
         </div>
 
@@ -76,7 +86,7 @@ const Profile = () => {
             <h5>Account</h5>
             {select === 'account' && <div className='check'></div>}
           </div>
-          <hr style={{ height: '40px' }} />
+          <hr />
           <div className='profile-nav' onClick={() => setSelect('history')}>
             <h5>History</h5>
             {select === 'history' && <div className='check'></div>}
@@ -355,22 +365,26 @@ const Profile = () => {
                         </div>
                       </div>
                     </div>
-
-                    <div
-                      className={`check-detail-confirm  ${
-                        order.confirm
-                          ? 'check-detail-confirm-confirm'
-                          : 'check-detail-confirm-uncomfirmed'
-                      }`}
-                    >
-                      {order.confirm ? 'Comfirmed' : 'Unconfirmed'}
-                    </div>
-                    <Link to={`/myorder/${order._id}`} className='link'>
+                    <div className='order-detail-his'>
+                      <div
+                        className={`check-detail-confirm  ${
+                          order.confirm
+                            ? 'check-detail-confirm-confirm'
+                            : 'check-detail-confirm-uncomfirmed'
+                        }`}
+                      >
+                        {order.confirm ? 'Comfirmed' : 'Unconfirmed'}
+                      </div>
                       <button className='check-detail'>
-                        <FontAwesomeIcon icon={faCircleInfo} className='next' />
-                        Detail
+                        <Link to={`/myorder/${order._id}`} className='link'>
+                          <FontAwesomeIcon
+                            icon={faCircleInfo}
+                            className='next'
+                          />
+                          Detail
+                        </Link>
                       </button>
-                    </Link>
+                    </div>
                   </div>
                 ))
               )}

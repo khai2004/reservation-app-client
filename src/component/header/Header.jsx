@@ -4,9 +4,7 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import {
   faBed,
-  faCalendarDays,
   faCar,
-  faPerson,
   faPlane,
   faTaxi,
 } from '@fortawesome/free-solid-svg-icons';
@@ -32,29 +30,7 @@ const Header = () => {
 
   return (
     <div className='header'>
-      <div className={`header-container `}>
-        <div className='header-list'>
-          <div className='header-list-item active'>
-            <FontAwesomeIcon icon={faBed} />
-            <span>Stays</span>
-          </div>
-          <div className='header-list-item'>
-            <FontAwesomeIcon icon={faPlane} />
-            <span>Flights</span>
-          </div>
-          <div className='header-list-item'>
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car rentals</span>
-          </div>
-          <div className='header-list-item'>
-            <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
-          </div>
-          <div className='header-list-item'>
-            <FontAwesomeIcon icon={faTaxi} />
-            <span>Airport taxis</span>
-          </div>
-        </div>
+      <div className='header-container'>
         {pathname === '/' && (
           <div className='text'>
             <h1 className='title'>Find your next stay</h1>
@@ -64,10 +40,10 @@ const Header = () => {
           </div>
         )}
         {!(pathname === '/register') && (
-          <form onSubmit={handleSearch}>
+          <form onSubmit={handleSearch} className='form'>
             <div className='searchBar'>
               <div className='where'>
-                <FontAwesomeIcon icon={faBed} />
+                <FontAwesomeIcon icon={faBed} style={{ fontSize: '2rem' }} />
                 <input
                   type='text'
                   placeholder='Where are you going?'

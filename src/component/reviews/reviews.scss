@@ -1,6 +1,8 @@
 .reviews {
   margin-top: 5rem;
-
+  h2 {
+    margin-bottom: 2rem;
+  }
   .review-slide {
     display: flex;
     justify-content: center;
@@ -81,6 +83,70 @@
       .submit-review {
         align-self: flex-end;
         height: max-content;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .reviews {
+    margin: 5rem 2rem;
+    .review-slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: static;
+      width: 100%;
+      margin-top: 0rem;
+      .guest-review {
+        width: 100%;
+        .single-review {
+          flex: 100%;
+        }
+      }
+      .slide-review {
+      }
+      .left-review {
+        display: none;
+      }
+      .right-review {
+        display: none;
+      }
+    }
+
+    .add {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .addForm {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        .rating {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          .rating-start {
+            color: gainsboro;
+            font-size: 2rem;
+            cursor: pointer;
+          }
+          .rating-hover {
+            color: #fac815;
+          }
+        }
+        input {
+          padding: 2rem;
+        }
+
+        .submit-review {
+          align-self: flex-end;
+          height: max-content;
+        }
       }
     }
   }

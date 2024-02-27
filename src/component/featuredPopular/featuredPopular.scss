@@ -70,3 +70,40 @@
     }
   }
 }
+@media only screen and (max-width: 650px) {
+  .featured {
+    width: 90%;
+    .featured__element {
+      width: 100%;
+      gap: 2rem;
+      .featured__child {
+        width: 100%;
+        gap: 2rem;
+        flex-direction: column;
+        .featured__child--element {
+          height: 22.5rem;
+          width: 100%;
+
+          h2 {
+            font-size: 2.4rem;
+          }
+        }
+      }
+      .featured__child1 {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 2rem;
+        .featured__child--element {
+          height: 22.5rem;
+          width: 100%;
+
+          h2 {
+            font-size: 2.4rem;
+          }
+        }
+      }
+    }
+  }
+}

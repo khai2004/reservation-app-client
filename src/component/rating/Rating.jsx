@@ -2,7 +2,7 @@ import React from 'react';
 
 const Rating = ({ hotel }) => {
   return (
-    <div>
+    <div style={{ fontSize: '1.6rem' }}>
       {' '}
       {hotel.rating >= 1 && hotel.rating < 2
         ? 'Bad'
@@ -13,7 +13,7 @@ const Rating = ({ hotel }) => {
         : hotel.rating >= 4 && hotel.rating < 5
         ? 'Great'
         : hotel.rating === 5
-        ? 'Not good'
+        ? 'Excelent'
         : ''}
     </div>
   );

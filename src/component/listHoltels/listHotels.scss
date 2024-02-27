@@ -1,7 +1,12 @@
 .list-container {
   flex: 70%;
   position: relative;
-
+  h2 {
+    span {
+      font-size: 2.5rem;
+    }
+    font-size: 2.5rem;
+  }
   .result {
     margin-bottom: 1rem;
   }
@@ -45,5 +50,16 @@
   }
   .list {
     margin-top: 2rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .list-container {
+    width: 90%;
+
+    .list {
+      margin-top: 2rem;
+      width: 100%;
+    }
   }
 }

@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Room from '../../component/room/Room';
 import Loader from '../../component/loader/Loader';
 import Reviews from '../../component/reviews/Reviews';
+import GaleryMobile from '../../component/galery-mobile/GaleryMobile';
 
 const SingleHotel = () => {
   const [seletedPhoto, setSeletedPhoto] = useState(0);
@@ -76,6 +77,14 @@ const SingleHotel = () => {
                 Reserve your apartment stay
               </a>
             </div>
+            <div className='galery-mobile'>
+              <GaleryMobile
+                setSeletedPhoto={setSeletedPhoto}
+                lastPhoto={lastPhoto}
+                data={data}
+                seletedPhoto={seletedPhoto}
+              />
+            </div>
             <div className='galery'>
               <img
                 src={data?.photo[0]?.url}
@@ -89,6 +98,7 @@ const SingleHotel = () => {
                 className='galery2'
                 onClick={() => handleOpenSlide(1)}
               />
+
               <div className='galery3'>
                 <div className='image_3'>
                   <img

@@ -104,3 +104,10 @@
     }
   }
 }
+
+@media only screen and (max-width: 650px) {
+  .manage-hotel-box {
+    color: grey;
+    width: 90rem;
+  }
+}

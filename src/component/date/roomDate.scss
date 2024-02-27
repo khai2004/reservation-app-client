@@ -22,3 +22,24 @@
     box-shadow: 0.5rem 0.5rem 1rem 0 rgba(0, 0, 0, 0.5);
   }
 }
+
+@media only screen and (max-width: 650px) {
+  .room-date-bar {
+    width: 100%;
+    .date {
+      gap: 2rem;
+      .setDate {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        .start-date {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+      }
+    }
+    .calendar {
+      left: 0;
+    }
+  }
+}

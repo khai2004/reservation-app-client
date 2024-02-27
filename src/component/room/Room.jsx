@@ -125,7 +125,7 @@ const Room = ({ id, hotelData }) => {
   return (
     <>
       {!isLoading && (
-        <div>
+        <>
           <div className='search-room-component'>
             <SearchRoom />
           </div>
@@ -213,13 +213,70 @@ const Room = ({ id, hotelData }) => {
                   ))}
             </tbody>
           </table>
+
+          <div className='room-mobile-list'>
+            {data?.filter((room) => room.maxPeople >= maxPeople).length > 0 &&
+              data
+                ?.filter((room) => room.maxPeople >= maxPeople)
+                .map((item, index) => (
+                  <div key={item._id} className='room-mobile'>
+                    <div className='title-table'>
+                      <h3>{item.title}</h3>
+                      <p>Type: {item.desc}</p>
+                    </div>
+                    <div className='number-guest-table'>
+                      <p>Number of people:</p>
+                      <div className='num-mobile'>
+                        {Array.from({ length: item.maxPeople }, (_, index) => (
+                          <FontAwesomeIcon icon={faUser} />
+                        ))}
+                        <p>x{item.maxPeople}</p>{' '}
+                      </div>
+                    </div>
+                    <div className='price-table'>
+                      <p>Price:</p>
+                      <p>${item.price}</p>
+                    </div>
+
+                    <div className='body-reserve'>
+                      <p>Rooms:</p>
+
+                      <div className='choose-room'>
+                        {item?.roomNumbers?.map((roomdata) => (
+                          <div className='check-room' key={roomdata._id}>
+                            <input
+                              type='checkbox'
+                              required
+                              disabled={!checkUnavailableRoom(roomdata)}
+                              onClick={() =>
+                                handleSelectRoom1(
+                                  roomdata._id,
+                                  roomdata.number,
+                                  item._id,
+                                  item.title,
+                                  item.maxPeople,
+                                  item.price
+                                )
+                              }
+                            />
+                            <p>{roomdata.number}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            <button className='checking-table' onClick={handleOrderData}>
+              Reserve
+            </button>
+          </div>
           {data?.filter((room) => room.maxPeople >= maxPeople).length === 0 && (
             <h3 className='fail-to-check'>
               There is no room that meet your requirement😢!Please, you cound
               check 2 room or come to check later!
             </h3>
           )}
-        </div>
+        </>
       )}
     </>
   );

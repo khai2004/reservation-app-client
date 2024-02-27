@@ -135,3 +135,65 @@
     }
   }
 }
+
+@media only screen and (max-width: 650px) {
+  .header {
+    width: 100%;
+    position: static;
+    .header-container {
+      width: 100%;
+      margin: 0rem;
+      padding: 2rem;
+      .text {
+        margin-top: 0rem;
+        .title {
+          font-size: 3rem;
+          margin-bottom: 0rem;
+        }
+        .content {
+          font-size: 1.5rem;
+        }
+      }
+      .form {
+        margin: 0rem;
+        padding: 0rem;
+        width: 100%;
+        .searchBar {
+          display: flex;
+          flex-direction: column;
+          position: static;
+          bottom: 0rem;
+          height: 100%;
+          width: 100%;
+          margin-top: 3rem;
+
+          .where {
+            width: 100%;
+            padding-left: 1rem;
+            padding-top: 0rem;
+            padding-bottom: 0rem;
+            .input {
+              font-size: 2rem;
+              width: 100%;
+            }
+          }
+
+          .date-search-bar {
+            width: 100%;
+          }
+
+          .people-search-bar {
+            width: 100%;
+            display: flex;
+            padding: 0rem;
+          }
+          .search {
+            font-size: 2rem;
+            padding: 1rem 0rem;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

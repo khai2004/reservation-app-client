@@ -69,18 +69,100 @@
         background-color: white;
         cursor: pointer;
       }
-      .admin-nav-element {
-        color: black;
-        padding: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .navbar {
+    width: 100%;
+    .navContainer {
+      width: 95%;
+      position: relative;
+
+      .logo {
+        color: white;
+        font-weight: 700;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+
+      .navItems {
+        display: flex;
+        gap: 1rem;
+        margin-left: 2rem;
+
+        .navButton {
+          cursor: pointer;
+          padding: 1rem 2rem;
+          background-color: white;
+          color: #003b95;
+          font-weight: 500;
+          border-radius: 1rem;
+          border-style: none;
+
+          &:hover {
+            background-color: #5f9bf5;
+            color: white;
+          }
+        }
+      }
+      .user {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        gap: 1.5rem;
         cursor: pointer;
-        background-color: white;
-        width: 18rem;
-        border-radius: 1rem;
-        &:hover {
-          background-color: rgb(227, 227, 227);
+        font-weight: 500;
+
+        .user-nav {
+          color: white;
+          font-weight: bold;
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          img {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 0.2rem solid gold;
+          }
+        }
+
+        .nav-mobile {
+          background-color: rgb(197, 197, 197);
+          z-index: 9999;
+          position: absolute;
+          top: 6rem;
+          right: 0rem;
+          padding: 0.5rem;
+          border-radius: 1rem;
+          button {
+            width: 100%;
+            padding: 0rem;
+            border: none;
+            border: 0.1rem solid grey;
+            border-radius: 0.5rem;
+            background-color: white;
+            cursor: pointer;
+          }
+          .admin-nav-element {
+            color: black;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            background-color: white;
+            width: 18rem;
+            border-radius: 1rem;
+            p {
+              font-size: 1.4rem;
+            }
+            &:hover {
+              background-color: rgb(227, 227, 227);
+            }
+          }
         }
       }
     }
